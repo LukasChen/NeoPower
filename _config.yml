@@ -10,7 +10,7 @@ title: NewPower
 email: 
 description: > # this means to ignore newlines until "baseurl:"
   NewPower
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/NeoPower/" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site
 twitter_username: ""
 github_username:  ""
