@@ -1,0 +1,20 @@
+{
+  "name": "neopower",
+  "version": "0.10.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-sass": "^4.0.2",
+    "node-sass-tilde-importer": "^1.0.2"
+  },
+  "dependencies": {
+    "bootstrap-material-design": "^4.1.1"
+  }
+}

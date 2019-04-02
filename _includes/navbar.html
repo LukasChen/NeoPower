@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row align-items-center justify-content-between">
+    <div class="col-sm-4">
+      <!-- <select class="form-control" style="max-width: 250px;" id="exampleFormControlSelect1">
+        <option>English</option>
+        <option>Portuguese</option>
+      </select> -->
+    </div>
+    <div class="col-sm-4">
+      <img src="/assets/images/neopower-logo.jpg" class="img-fluid">
+    </div>
+    <div class="col-sm-4">
+      <div class="d-flex header-icons" role="group">
+        <div class="search rounded-pill">
+          <input type="text" class="search-input ml-auto form-control rounded-pill" placeholder="Search">
+          <button class="search-svg btn bmd-btn-icon">
+            {% include icons/baseline-search-24px.svg %}
+          </button>
+        </div>
+        <button class="btn hover-accent" data-toggle="modal" data-target="#languageModal">English</button>
+        <button class="btn bmd-btn-icon">
+          {% include icons/baseline-shopping_basket-24px.svg %}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<nav id="main-nav" class="mt-3 sticky-top navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav d-flex justify-content-between" style="width: 100%">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Shaping Lingerie</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Wholesale</a>
+        </li>
+      </ul>
+    </div>
+  </div> 
+</nav>
+
+<!-- Language Modal -->
+<div class="modal fade" id="languageModal" tabindex="-1" role="dialog" aria-labelledby="languageModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change Language</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul class="nav">
+          <li class="nav-item active"><a class="nav-link" href="#">English</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Español</a></li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

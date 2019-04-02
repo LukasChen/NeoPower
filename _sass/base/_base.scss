@@ -1,0 +1,17 @@
+@font-face {
+  font-family: Roboto;
+  src: url('/assets/fonts/Roboto-Light.ttf');
+}
+
+p,h1,h2,h3,h4,h5 {
+  font-family: Roboto;
+}
+
+hr {
+  border-color: #000;
+  border-width: 2px;
+}
+
+a:hover {
+  color: $color-accent;
+}

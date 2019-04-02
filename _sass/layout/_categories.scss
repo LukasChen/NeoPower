@@ -1,0 +1,39 @@
+.category-item {
+  max-width: 300px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: inherit;
+  flex: none;
+  margin-bottom: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    .category-item-hover-img {
+      opacity: 1;
+    }
+
+    .category-item-heading {
+      color: $color-accent;
+    }
+  }
+
+  &-contain {
+    position: relative;
+    max-width: 150px;
+  }
+
+  &-hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &-heading {
+    color: $color-secondary;
+    transition: all 0.2s ease-in-out;
+  }
+}
