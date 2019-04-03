@@ -42,9 +42,31 @@ encoding: utf-8
 #     - node_modules
 
 main_menu:
-  Home: /
-  Lines: /lines/
-  NeoPowerNet: /neopowernet/
-  Shaping Lingerie: /shaping-lingerie/
-  Active: /active/
-  Wholesale: /wholesale/
+  - name: Home
+    url: /
+  - name: NewPower Net
+    url: /newpower-net/
+  - name: Shaping Lingerie
+    url: /shaping-lingerie/
+    dropdown: true
+  - name: Active
+    url: /active/
+    subitems:
+      - name: NeoCat Sport Bra
+        url: /active/neocat-sport-bra/
+      - name: NeoPower Suda Mas Cami
+        url: /active/neopower-suda-mas-cami/
+      - name: NewPower + PowerNet Corset
+        url: /active/newpowernet-thermal-corset/
+      - name: NeoWander Waist Trainer
+        url: /active/neowander-waist-trainer/
+      - name: NeoPower Tubular Shaper
+        url: /active/newpower-tubular-shaper/
+      - name: Capri Leggings
+        url: /active/capri-leggings-belt/
+      - name: Full Leggings
+        url: /active/full-leggings-belt/
+      - name: NeoPower Man Tank Top
+        url: /active/neopower-man-tank-top/
+  - name: Wholesale
+    url: /wholesale/

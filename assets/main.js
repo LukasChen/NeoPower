@@ -9,7 +9,6 @@ $(function() {
     dots: true
   });
 
-
   $(".search-svg").on("click",function() {
     $(this).prev().addClass("active").focus();
     $(this).addClass("active");
@@ -21,6 +20,87 @@ $(function() {
       }
     });
   });
+
+  var prevNavOpen;
+
+  $(".nav-link.dropdown-toggle").on("click",function(event) {
+    event.preventDefault();
+    var menu = $(this).next();
+    menu.addClass("show");
+    TweenLite.from(menu,0.3,{y: -20, ease: Power1.easeInOut});
+    TweenLite.to(menu,0.3,{opacity: 1, ease: Power1.easeInOut});
+    if(menu.data("isOpen")) {
+      closeMenu();
+      return;
+    }
+    menu.data("isOpen", true);
+
+    if (prevNavOpen) {
+      var $this = prevNavOpen;
+      TweenLite.to($this,0.3,{ease: Power1.easeInOut, opacity: 0, onComplete: function() {
+        $this.removeClass("show");
+      }});
+      console.log("currentOpen");
+      console.log(prevNavOpen);
+      console.log(menu);
+      //prevNavOpen = null;
+    }
+
+    $(document).on("click.hideMenu",function(event) {
+      if(!$(event.target).closest("#main-nav").length) {
+        closeMenu();
+        $(document).off("click.hideMenu");
+      }
+    });
+
+    function closeMenu () {
+      TweenLite.to(menu,0.3,{ease: Power1.easeInOut, opacity: 0, onComplete: function() {
+        menu.removeClass("show");
+      }});
+      menu.data("isOpen",false);
+      prevNavOpen = null;
+    }
+
+    prevNavOpen = menu;
+    //console.log(prevNavOpen);
+  });
+
+  var filterItems = $(".filter-items > *");
+  var beingFiltered = false;
+
+  $("[data-toggle='filter']").on("click",function(event) {
+    event.preventDefault();
+    
+    var target = $(this).attr("href");
+    console.log(target);
+
+    filterItems.each(function() {
+      if (!$(this).hasClass(target.slice(1))) {
+        console.log($(this).attr("class"));
+        var $this = $(this);
+        TweenLite.to($(this),0.3,{opacity: 0, ease: Power1.easeInOut, onComplete: function() {
+          $this.hide();
+        }});
+      }
+    });
+
+    $(target).show();
+    TweenLite.to($(target),0.3,{opacity: 1, ease: Power1.easeInOut});
+
+    $(".filter-reset").show();
+    TweenLite.to($(".filter-reset"),0.3,{opacity: 1, ease: Power1.easeInOut});
+  });
+
+  $(".filter-reset").on("click",function() {
+    event.preventDefault();
+    filterItems.show();
+    TweenLite.to(filterItems,0.3,{opacity: 1, ease: Power1.easeInOut});
+    var $this = $(this);
+    TweenLite.to($(this),0.3,{opacity: 0, ease: Power1.easeInOut, onComplete: function () {
+      $this.hide();
+    }});
+  });
+
 
 
   var tl = new TimelineLite();

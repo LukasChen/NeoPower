@@ -8,8 +8,8 @@ p,h1,h2,h3,h4,h5 {
 }
 
 hr {
-  border-color: #000;
-  border-width: 2px;
+  border-color: $color-secondary;
+  //border-width: 2px;
 }
 
 a:hover {

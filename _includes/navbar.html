@@ -33,18 +33,32 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav d-flex justify-content-between" style="width: 100%">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Shaping Lingerie</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Wholesale</a>
-        </li>
+        {% for menu in site.main_menu %}
+          <li class="nav-item {% if menu.dropdown %}dropdown{% endif %}">
+            <a class="nav-link {% if menu.dropdown %}dropdown-toggle{% endif %} {% if menu.url == page.url %}active{% endif %}" href="{% if menu.dropdown %}#{% else %}{{menu.url}}{% endif %}">{{menu.name}}</a>
+            {% if menu.dropdown %}
+            <div class="dropdown-menu shadow mega-dropdown mega-dropdown-1" aria-labelledby="navbarDropdown">
+              <div class="row">
+              <div class="col-sm">
+                <h6 class="dropdown-heading">Zones</h6>
+                <ul class="nav flex-column">
+                  <a class="dropdown-item" href="#">Tops</a>
+                  <a class="dropdown-item" href="#">Leggins</a>
+                </ul>
+              </div>
+              <!-- <div class="col-sm-6">
+                <h6 class="dropdown-heading">Second Row</h6>
+                <ul class="nav flex-column">
+                  <a class="dropdown-item" href="#">Link #1</a>
+                  <a class="dropdown-item" href="#">Link #2</a>
+                  <a class="dropdown-item" href="#">Link #3</a>
+                </ul>
+              </div> -->
+              </div>
+            </div>
+            {% endif %}
+          </li>
+        {% endfor %}
       </ul>
     </div>
   </div> 

@@ -9,13 +9,16 @@
 
 @import "base/base";
 
+@import
+  "components/buttons",
+  "components/dropdown";
+
 @import 
   "layout/header",
   "layout/navbar",
   "layout/feature-section",
   "layout/product-overview",
+  "layout/product-card",
   "layout/categories",
-  "layout/slideshow";
-
-@import
-  "components/buttons";
+  "layout/slideshow",
+  "layout/footer";

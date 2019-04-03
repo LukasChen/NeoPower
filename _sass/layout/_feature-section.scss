@@ -11,10 +11,12 @@
   //word-spacing: 0.3em;
   overflow: hidden;
   position: relative;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
 
   &::before,
   &::after {
-    background-color: #000;
+    background-color: $color-secondary;
     content: "";
     display: inline-block;
     height: 2px;
