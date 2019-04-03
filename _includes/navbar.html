@@ -35,7 +35,7 @@
       <ul class="navbar-nav d-flex justify-content-between" style="width: 100%">
         {% for menu in site.main_menu %}
           <li class="nav-item {% if menu.dropdown %}dropdown{% endif %}">
-            <a class="nav-link {% if menu.dropdown %}dropdown-toggle{% endif %} {% if menu.url == page.url %}active{% endif %}" href="{% if menu.dropdown %}#{% else %}{{menu.url}}{% endif %}">{{menu.name}}</a>
+            <a class="nav-link {% if menu.dropdown %}dropdown-toggle{% endif %} {% if menu.url == page.url %}active{% endif %}" href="{% if menu.dropdown %}#{% else %}{{site.baseurl}}{{menu.url}}{% endif %}">{{menu.name}}</a>
             {% if menu.dropdown %}
             <div class="dropdown-menu shadow mega-dropdown mega-dropdown-1" aria-labelledby="navbarDropdown">
               <div class="row">
