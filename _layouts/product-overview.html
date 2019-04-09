@@ -6,3 +6,103 @@ layout: default
 <div class="container">
   {{content}}
 </div>
+{% comment %}
+{% for menu in site.main_menu %}
+  
+  {% if menu.url == page.url %}
+
+    {% assign multiArray = "" | split: "/" %}
+    {% for subitem in menu.subitems %}
+
+      {% assign reminder = forloop.index | modulo: 5 %}
+
+      {% if reminder == 1 %}
+        <!-- create a new empty sub array<br> -->
+        {% assign subArray = "" | split: "/" %}
+        <!-- subArray = {{ subArray | inspect }}<br> -->
+      {% endif %}
+
+      <!-- push current subitem in subArray<br> -->
+      {% assign subArray = subArray | push: subitem %}
+      <!-- subArray = {{ subArray | inspect }}<br> -->
+
+      {% if reminder == 0 or forloop.last %}
+        <!-- push subArray in multiArray if subarray length is<br> -->
+        {% assign multiArray = multiArray | push: subArray %}
+        <!-- multiArray = {{ multiArray | inspect }}<br> -->
+      {% endif %}
+    {% endfor %}
+
+  {% endif %}
+{% endfor %}
+{% endcomment %}
+<!-- <style>
+.paginition-item {
+  display: none;
+}
+
+.paginition-item.page-active {
+  display: flex;
+}
+</style> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="sticky-top" style="top: 70px;">
+      <h5 class="pl-3 text-uppercase">By Zones</h5>
+      <ul class="nav flex-column">
+        {% for categories in site.category_list[page.subitems] %}
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="filter" href=".product-{{ categories | downcase | remove: '& ' | replace: ' ', '-' }}">{{categories}}</a>
+        </li>
+        {% endfor %}
+        <li class="nav-item filter-reset" style="display:none">
+          <a class="nav-link" href="#"><strong>Show All</strong></a>
+        </li>
+      </ul>
+      </div>
+    </div>
+    <div class="col-md-10">
+  
+      <div class="row filter-items">
+  
+      {% for menu in site.main_menu %}
+
+      {% if menu.url == page.url %}
+
+      {% for subitem in menu.subitems %}
+  
+      {% for sitepage in site.pages %}
+  
+  
+      {% if subitem.url == sitepage.url %}
+  
+      <div class="col-sm-4 mb-5 text-center {% if sitepage.categories %}product-{{sitepage.categories | downcase | remove: '& ' | replace: ' ', '-' }}{% endif %}">
+        <a href="{{site.baseurl}}{{subitem.url}}" class="card product-card">
+          <img class="img-fluid card-img-top {% if sitepage.product_image_hover %}product-card-img{% endif %}" src="{{site.baseurl}}/assets/images{{sitepage.product_image}}" />
+          {% if sitepage.product_image_hover %}
+            <img class="img-fluid card-img-top product-card-img-hover lazy" src="{{site.baseurl}}/assets/images{{sitepage.product_image_hover}}">
+          {% endif %}
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title mb-3">{{sitepage.title}}</h5>
+            <h5 class="text-accent mt-auto">${{sitepage.price}}</h5>
+            <button class="btn btn-primary btn-lg" href="{{subitem.url}}">Shop Now</button>
+          </div>
+        </a>
+      </div>
+  
+      {% endif %}
+  
+      {% endfor %}
+
+      {% endfor %}
+
+      {% endif %}
+  
+      {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</div>

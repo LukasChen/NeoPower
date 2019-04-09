@@ -41,16 +41,46 @@ encoding: utf-8
 #     - _sass
 #     - node_modules
 
+category_list: 
+  neopowernet:
+    - Tummy & Waist
+    - Back Support
+    - Rear & Hips
+  active:
+    - Upper Body
+    - Waist
+    - Lower Body
+
 main_menu:
   - name: Home
     url: /
   - name: NewPower Net
     url: /newpower-net/
+    subitems:
+      - name: Waist Traning Corset
+        url: /neopower-net/waist-training-corset/
+      - name: Semi Waist Trainer Alexandra
+        url: /neopower-net/semi-waist-training-alexandra/
+      - name: Semi Waist Trainer Emma
+        url: /neopower-net/semi-waist-training-emma/
+      - name: Waist Training Vest
+        url: /neopower-net/waist-training-vest-kate/
+      - name: Strapless Panty Shaper Amelia
+        url: /neopower-net/strapless-panty-shaper-amelia/
+      - name: Bodysuit Shorts Ellena
+        url: /neopower-net/bodysuit-shorts-ellena/
+      - name: Bodysuit Shorts Lucia
+        url: /neopower-net/bodysuit-shorts-lucia/
+      - name: Bodysuit Mid-Thighs Julia
+        url: /neopower-net/bodysuit-mid-thighs-julia/
+      - name: Bodysuit Mid-Thighs Catalina
+        url: /neopower-net/bodysuit-mid-thighs-catalina/
   - name: Shaping Lingerie
     url: /shaping-lingerie/
     dropdown: true
   - name: Active
     url: /active/
+    dropdown: true
     subitems:
       - name: NeoCat Sport Bra
         url: /active/neocat-sport-bra/
@@ -70,3 +100,5 @@ main_menu:
         url: /active/neopower-man-tank-top/
   - name: Wholesale
     url: /wholesale/
+
+    paginition_size: 5

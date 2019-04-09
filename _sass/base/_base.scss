@@ -7,11 +7,22 @@ p,h1,h2,h3,h4,h5 {
   font-family: Roboto;
 }
 
+// h5,h6 {
+//   text-transform: uppercase;
+//   font-weight: bolder;
+// }
+
 hr {
   border-color: $color-secondary;
   //border-width: 2px;
 }
 
-a:hover {
+a:hover, a.active {
   color: $color-accent;
+}
+
+.nav-link {
+  color: #212529;
+  padding: 0.3rem 1rem;
+  transition: color 0.2s ease-in;
 }

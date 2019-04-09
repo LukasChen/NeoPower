@@ -4,6 +4,6 @@ title: NeoCat Sport Bra With Removable Pads
 price: '38.00'
 product_image: /active/0008-black.png
 product_image_hover: /active/0008-royal-blue.png
-category: tops
+categories: Upper Body
 ---
 

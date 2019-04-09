@@ -42,8 +42,10 @@
               <div class="col-sm">
                 <h6 class="dropdown-heading">Zones</h6>
                 <ul class="nav flex-column">
-                  <a class="dropdown-item" href="#">Tops</a>
-                  <a class="dropdown-item" href="#">Leggins</a>
+                  {% assign categories = menu.name | downcase | replace: ' ','' %}
+                  {% for category in site.category_list[categories] %}
+                  <a class="dropdown-item" href="{{menu.url}}#product-{{ category | downcase | remove: '& ' | replace: ' ', '-' }}">{{category}}</a>
+                  {% endfor %}
                 </ul>
               </div>
               <!-- <div class="col-sm-6">

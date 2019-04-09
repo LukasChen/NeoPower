@@ -66,33 +66,52 @@ $(function() {
   });
 
   var filterItems = $(".filter-items > *");
-  var beingFiltered = false;
+  var filterTl = new TimelineLite();
+
+  if (window.location.hash) {
+    console.log(window.location.hash);
+    filterItem("." + window.location.hash.substr(1));
+    $("[data-toggle='filter'][href='" + "." + window.location.hash.substr(1) + "']").addClass("active");
+  }
 
   $("[data-toggle='filter']").on("click",function(event) {
     event.preventDefault();
+
+    filterTl = new TimelineLite();
+
+    $(this).closest(".nav").find(".nav-link").removeClass("active");
+
+    $(this).addClass("active");
     
     var target = $(this).attr("href");
-    console.log(target);
+    window.location.hash = target.substr(1);
 
-    filterItems.each(function() {
-      if (!$(this).hasClass(target.slice(1))) {
-        console.log($(this).attr("class"));
-        var $this = $(this);
-        TweenLite.to($(this),0.3,{opacity: 0, ease: Power1.easeInOut, onComplete: function() {
-          $this.hide();
-        }});
-      }
-    });
+    filterItem(target);
 
-    $(target).show();
-    TweenLite.to($(target),0.3,{opacity: 1, ease: Power1.easeInOut});
+    // filterItems.each(function() {
+    //   var $this = $(this);
+    //   TweenLite.to($(this),0.3,{opacity: 0, ease: Power1.easeInOut, onComplete: function() {
+    //     $this.hide();
+    //   }});
+    // });
+
+    
+  });
+
+  function filterItem(target) {
+    filterTl.to(filterItems,0.3,{opacity: 0, ease: Power1.easeInOut});
+    filterTl.to(filterItems,0,{display: "none"});
+    filterTl.to($(target),0,{display: "block"});
+    filterTl.to($(target),0.3,{opacity: 1, ease: Power1.easeInOut});
 
     $(".filter-reset").show();
     TweenLite.to($(".filter-reset"),0.3,{opacity: 1, ease: Power1.easeInOut});
-  });
+  }
 
   $(".filter-reset").on("click",function() {
     event.preventDefault();
+    history.pushState("", document.title, window.location.pathname+ window.location.search);
+    $(this).closest(".nav").find(".nav-link").removeClass("active");
     filterItems.show();
     TweenLite.to(filterItems,0.3,{opacity: 1, ease: Power1.easeInOut});
     var $this = $(this);
@@ -153,4 +172,5 @@ $(function() {
   })
   .setTween(tl2)
   .addTo(controller);
+    
 });
