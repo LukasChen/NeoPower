@@ -10,7 +10,7 @@ title: NewPower
 email: 
 description: > # this means to ignore newlines until "baseurl:"
   NewPower
-baseurl: "/NeoPower/" # the subpath of your site, e.g. /blog
+baseurl: "/NeoPower" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site
 twitter_username: ""
 github_username:  ""
@@ -43,19 +43,57 @@ encoding: utf-8
 
 category_list: 
   neopowernet:
-    - Tummy & Waist
-    - Back Support
-    - Rear & Hips
+    collections:
+      - The Upgraders
+      - The Infinites
+    zones:
+      - Tummy & waist
+      - Back Support
+      - Rear & Hips
+      - Thighs & Legs
+      - Full Body
+    benefits:
+      - Daily Use
+      - Waist Trainer
+      - Butt Lifters
+      - Posture Corrector
+      - Post Surgical
+      - Postpartum
+    style:
+      - Bodysuit Shaper
+      - Body Panties
+      - Cinchers
+      - Vest
+    closures:
+      - Hooks & Eye
+      - Invisible
+  shapinglingerie:
+    zones:
+      - Tummy & Waist
+      - Back Support
+      - Rear & Hips
+      - Thighs & Legs
+      - Arms
+      - Bust
+      - Full Body
+    styles:
+      - Tops
+      - Shorts
+      - Panties
+      - Bodysuit Shaper
   active:
-    - Upper Body
-    - Waist
-    - Lower Body
+    zones:
+      - Upper Body
+      - Waist
+      - Lower Body
 
 main_menu:
   - name: Home
     url: /
-  - name: NewPower Net
+  - name: NeoPower Net
     url: /newpower-net/
+    dropdown: true
+    img: /neopower-net/3006-front.png
     subitems:
       - name: Waist Traning Corset
         url: /neopower-net/waist-training-corset/
@@ -77,10 +115,12 @@ main_menu:
         url: /neopower-net/bodysuit-mid-thighs-catalina/
   - name: Shaping Lingerie
     url: /shaping-lingerie/
+    img: /shaping-lingerie/3098-front.png
     dropdown: true
   - name: Active
     url: /active/
     dropdown: true
+    img: /active/2028-front.png
     subitems:
       - name: NeoCat Sport Bra
         url: /active/neocat-sport-bra/
@@ -101,4 +141,27 @@ main_menu:
   - name: Wholesale
     url: /wholesale/
 
-    paginition_size: 5
+
+footer:
+  columns:
+    Company Info:
+      About NEOPOWER: https://google.com
+      NEOPOWER Intellectual Properties: https://www.google.com
+      NEOPOWER Technology: https://www.google.com
+      NEOPOWER Materials: https://www.google.com
+    Support & Services:
+      Customor Service: https://www.google.com
+      Shipping Policy: https://www.google.com
+      Return Policy: https://www.google.com
+      Order Status: https://www.google.com
+    Contact Us:
+      Tell & WhatsApp: https://www.google.com
+  footer_company: JOXI,CO.LTD
+  footer_links:
+    Terms & Conditions: https://www.google.com
+    Privacy Policy: https://www.google.com
+    CA Transparent: https://www.google.com
+    Accessibility: https://www.google.com
+
+
+paginition_size: 5

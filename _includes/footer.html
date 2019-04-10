@@ -3,16 +3,21 @@
 <div id="page-footer" class="feature-section pt-5 pb-5 mt-5" style="background-color:#f5fafd">
   <div class="container">
     <div class="row">
+      {% for footer_column in site.footer.columns %}
       <div class="col-sm-4">
-        <h5 class="pl-3">COMPANY INFO</h5>
+        <h6 class="text-uppercase">{{footer_column[0]}}</h6>
         <nav class="nav flex-column">
-          <a class="nav-link" href="#">About NEWPOWER</a>
-          <a class="nav-link" href="#">NEOPOWER Intellectual Properties</a>
+          {% for footer_link in footer_column[1] %}
+            <a class="nav-link small pl-0" href="{{footer_link[1]}}">{{footer_link[0]}}</a>
+          {% endfor %}
+          <!-- <a class="nav-link" href="#">NEOPOWER Intellectual Properties</a>
           <a class="nav-link" href="#">NEWPOWER Technology</a>
-          <a class="nav-link" href="#">NEWPOWER Materials</a>
+          <a class="nav-link" href="#">NEWPOWER Materials</a> -->
         </nav>
       </div>
-      <div class="col-sm-4">
+      {% endfor %}
+      
+      <!-- <div class="col-sm-4">
         <h5 class="pl-3">SUPPORT & SERVICES</h5>
         <nav class="nav flex-column">
           <a class="nav-link" href="#">Customor Service</a>
@@ -26,7 +31,9 @@
         <nav class="nav flex-column">
           <a class="nav-link" href="#">Tell & WhatsApp</a>
         </nav>
-      </div>
+      </div> -->
     </div>
+    <p class="small mt-3"><span class="mr-2">@<script>document.write(new Date().getFullYear())</script> <strong>{{site.footer.footer_company}}</strong></span>
+    {% for footer_link in site.footer.footer_links %}<a class="footer-links nav-link" href="{{footer_link[1]}}">{{footer_link[0]}}</a href="{{}}">{% endfor %}</p>
   </div>
 </div>

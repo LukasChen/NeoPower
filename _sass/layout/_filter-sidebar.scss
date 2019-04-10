@@ -1,0 +1,18 @@
+.filter-sidebar {
+  position: sticky;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.filter-heading {
+  //padding-left: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.3em;
+  margin-top: 1em;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+.filter-link {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}

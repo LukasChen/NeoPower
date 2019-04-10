@@ -1,7 +1,7 @@
 {% if page.feature_image contains "://" %}
   {% assign feature_image = feature_image %}
 {% else %}
-  {% capture feature_image %}/assets/images{{page.feature_image}}{% endcapture %}
+  {% capture feature_image %}assets/images{{page.feature_image}}{% endcapture %}
   {% assign feature_image = feature_image | relative_url %}
 {% endif %}
 

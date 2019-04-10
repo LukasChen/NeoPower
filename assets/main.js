@@ -21,48 +21,23 @@ $(function() {
     });
   });
 
-  var prevNavOpen;
 
-  $(".nav-link.dropdown-toggle").on("click",function(event) {
-    event.preventDefault();
-    var menu = $(this).next();
+  $('.dropdown').hover(function() {
+    var menu = $(this).find('.dropdown-menu').first();
+    //menu.stop(true, true);
     menu.addClass("show");
-    TweenLite.from(menu,0.3,{y: -20, ease: Power1.easeInOut});
-    TweenLite.to(menu,0.3,{opacity: 1, ease: Power1.easeInOut});
-    if(menu.data("isOpen")) {
-      closeMenu();
-      return;
-    }
-    menu.data("isOpen", true);
-
-    if (prevNavOpen) {
-      var $this = prevNavOpen;
-      TweenLite.to($this,0.3,{ease: Power1.easeInOut, opacity: 0, onComplete: function() {
-        $this.removeClass("show");
-      }});
-      console.log("currentOpen");
-      console.log(prevNavOpen);
-      console.log(menu);
-      //prevNavOpen = null;
-    }
-
-    $(document).on("click.hideMenu",function(event) {
-      if(!$(event.target).closest("#main-nav").length) {
-        closeMenu();
-        $(document).off("click.hideMenu");
-      }
-    });
-
-    function closeMenu () {
-      TweenLite.to(menu,0.3,{ease: Power1.easeInOut, opacity: 0, onComplete: function() {
-        menu.removeClass("show");
-      }});
-      menu.data("isOpen",false);
-      prevNavOpen = null;
-    }
-
-    prevNavOpen = menu;
-    //console.log(prevNavOpen);
+    //animateCSS(menu, "fadeIn","faster");
+    TweenLite.to(menu,0.2, {opacity: 1,y:0});
+  }, function() {
+    var menu = $(this).find('.dropdown-menu').first();
+    /*animateCSS(menu, "fadeOut","faster",function onComplete() {
+      menu.removeClass('show');
+    });*/
+    
+    TweenLite.to(menu,0.2, {opacity: 0,y: -10, onComplete: function() {
+      menu.removeClass("show");
+    }});
+    
   });
 
   var filterItems = $(".filter-items > *");
@@ -79,7 +54,7 @@ $(function() {
 
     filterTl = new TimelineLite();
 
-    $(this).closest(".nav").find(".nav-link").removeClass("active");
+    $(this).closest(".filter-sidebar").find(".nav-link").removeClass("active");
 
     $(this).addClass("active");
     
@@ -111,7 +86,7 @@ $(function() {
   $(".filter-reset").on("click",function() {
     event.preventDefault();
     history.pushState("", document.title, window.location.pathname+ window.location.search);
-    $(this).closest(".nav").find(".nav-link").removeClass("active");
+    $(this).closest(".filter-sidebar").find(".nav-link").removeClass("active");
     filterItems.show();
     TweenLite.to(filterItems,0.3,{opacity: 1, ease: Power1.easeInOut});
     var $this = $(this);
@@ -172,5 +147,23 @@ $(function() {
   })
   .setTween(tl2)
   .addTo(controller);
+
+  function animateCSS(element, animationName, speed, callback) {
+    element.addClass('animated');
+    element.addClass(animationName)
+    if (speed) element.addClass(speed);
+
+    function handleAnimationEnd() {
+        element.removeClass('animated');
+        element.removeClass(animationName);
+        if (speed) element.removeClass(speed);
+        console.log("animate End!");
+        element.off('animationend', handleAnimationEnd);
+
+        if (typeof callback === 'function') callback()
+    }
+
+    element.on('animationend', handleAnimationEnd);
+}
     
 });

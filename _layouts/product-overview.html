@@ -48,22 +48,31 @@ layout: default
 
 <div class="container">
   <div class="row">
-    <div class="col-md-2">
-      <div class="sticky-top" style="top: 70px;">
-      <h5 class="pl-3 text-uppercase">By Zones</h5>
+    <div class="col-md-3">
+      <div class="sticky-top filter-sidebar" style="top: 70px;">
+      {% for categories in site.category_list[page.subitems] %}
+      <h6 class="filter-heading">By {{categories[0]}}</h6>
       <ul class="nav flex-column">
-        {% for categories in site.category_list[page.subitems] %}
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="filter" href=".product-{{ categories | downcase | remove: '& ' | replace: ' ', '-' }}">{{categories}}</a>
+        {% for category in categories %}
+        {% if forloop.index == 1 %}
+          {%- continue -%}
+        {% endif %}
+        {% for category_item in category %}
+        <li class="nav-item filter-item">
+          <a class="nav-link filter-link" data-toggle="filter" href=".product-{{ category_item | downcase | remove: '& ' | replace: ' ', '-' }}">{{ category_item }}</a>
         </li>
         {% endfor %}
+        {% endfor %}
+      </ul>
+      {% endfor %}
+      <ul class="nav flex-column">
         <li class="nav-item filter-reset" style="display:none">
           <a class="nav-link" href="#"><strong>Show All</strong></a>
         </li>
       </ul>
       </div>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-9">
   
       <div class="row filter-items">
   

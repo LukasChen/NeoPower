@@ -2,3 +2,18 @@
   margin-top: 10rem;
   border-color: #ccc;
 }
+.footer-links {
+  display: inline-block;
+  padding-left: 0;
+  padding-right: 0;
+  &::after {
+    content: "|";
+    color: #000;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  &:last-child::after {
+    content: none;
+  }
+}
