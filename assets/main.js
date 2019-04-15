@@ -24,6 +24,16 @@ $(function() {
     });
   });
 
+  $("[smooth-scroll]").on("click",function(event) {
+    event.preventDefault();
+    var target = $(this).attr("href");
+    if ($(target).length) {
+      TweenLite.to(window, 1, {scrollTo:{y: target, offsetY:70}});
+    } else {
+      console.warn("Empty hash link at " + target);
+    }
+  });
+
   $('.dropdown').hover(function() {
     console.time('Hover');
     var menu = $(this).find('.dropdown-menu').first();
@@ -98,9 +108,9 @@ $(function() {
 
 
 
-  var tl = new TimelineLite();
-  var tl2 = new TimelineLite();
-  var controller = new ScrollMagic.Controller();
+  // var tl = new TimelineLite();
+  // var tl2 = new TimelineLite();
+  // var controller = new ScrollMagic.Controller();
 
   // var liftTween = TweenLite.from("#lift-img",2,{x: -200,opacity: 0,ease: Power1.easeInOut});
   /*

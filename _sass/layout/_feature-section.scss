@@ -39,7 +39,8 @@
 .section-note {
   position: absolute;
   filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.7));
-  left: -150px;
+  left: 0;
+  transform: translateX(-50%);
   top: 55px;
   max-width: 350px;
   z-index:99;

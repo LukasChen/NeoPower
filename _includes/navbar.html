@@ -44,7 +44,7 @@
               {% assign category_selector = menu.name | downcase | replace: ' ', '' %}
               {% for categories in site.category_list[category_selector] %}
               <div class="col-sm" style="max-width: 15rem">
-                <h6 class="dropdown-heading">{{categories[0]}}</h6>
+                <h5 class="dropdown-heading font-weight-bold">{{categories[0]}}</h5>
                 <ul class="nav flex-column">
                   {% for category in categories %}
                   {% if forloop.index == 1 %}

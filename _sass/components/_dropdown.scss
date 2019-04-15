@@ -41,7 +41,6 @@
 
 .dropdown-heading {
   padding-bottom: 0.5rem;
-  text-align: center;
   text-transform: capitalize;
 }
 .dropdown {
@@ -58,6 +57,7 @@
   padding-left: 0;
   padding-right: 0;
   transition: all 0.2s ease-in-out;
+  color: #7e7e7e;
 
   &:hover,&:active,&:focus,&.active {
     background: transparent;
