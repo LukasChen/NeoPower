@@ -81,13 +81,14 @@ layout: default
       {% if menu.url == page.url %}
 
       {% for subitem in menu.subitems %}
+      
   
       {% for sitepage in site.pages %}
   
   
       {% if subitem.url == sitepage.url %}
   
-      <div class="col-sm-4 mb-5 text-center {% if sitepage.categories %}product-{{sitepage.categories | downcase | remove: '& ' | replace: ' ', '-' }}{% endif %}">
+      <div class="col-sm-4 mb-5 text-center {% if sitepage.categories %}{% for category in sitepage.categories %}product-{{category | downcase | remove: '& ' | replace: ' ', '-' }} {% endfor %}{% endif %}">
         <a href="{{site.baseurl}}{{subitem.url}}" class="card product-card">
           <img class="img-fluid card-img-top {% if sitepage.product_image_hover %}product-card-img{% endif %}" src="{{site.baseurl}}/assets/images{{sitepage.product_image}}" />
           {% if sitepage.product_image_hover %}

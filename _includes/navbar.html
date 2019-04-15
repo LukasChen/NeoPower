@@ -37,9 +37,6 @@
           <li class="nav-item {% if menu.dropdown %}dropdown{% endif %}">
             <a class="nav-link {% if menu.dropdown %}dropdown-toggle{% endif %} {% if menu.url == page.url %}active{% endif %}" href="{{site.baseurl}}{{menu.url}}">
               {{menu.name}}
-              <!-- <div class="svg-icons">
-                {% include icons/baseline-keyboard_arrow_down-24px.svg %}
-              </div> -->
             </a>
             {% if menu.dropdown %}
             <div class="dropdown-menu mega-dropdown container shadow" aria-labelledby="navbarDropdown">

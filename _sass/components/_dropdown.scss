@@ -6,7 +6,39 @@
   background: #FFF;
   padding: 1.5rem 2rem;
   min-width: 100%;
+  animation: openMenuReverse 0.2s 1 ease-in-out;
+  
+  //display: block;
+  //visibility: hidden;
+  //top: -10px;
+  //opacity: 0;
+
+  &.open {
+    animation: openMenu 0.2s 1 ease-in-out;
+  }
 }
+@keyframes openMenu{
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes openMenuReverse{
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .dropdown-heading {
   padding-bottom: 0.5rem;
   text-align: center;

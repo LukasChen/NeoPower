@@ -117,6 +117,25 @@ main_menu:
     url: /shaping-lingerie/
     img: /shaping-lingerie/3098-front.png
     dropdown: true
+    subitems:
+      - name: upCup Bra Lifter
+        url: /shaping-lingerie/upcup-bra-lifter/
+      - name: Neocat Bra
+        url: /shaping-lingerie/neocat-bra/
+      - name: Abdomen Flattening 270° Waist Clinching Cami With Removable Pads
+        url: /shaping-lingerie/abdomen-flattening-270-cami/
+      - name: Abdomen Flattening 270° Waist Clinching T-Shirt With Removable Pads
+        url: /shaping-lingerie/abdomen-flattening-270-t-shirt/
+      - name: Abdomen Flattening 180° Waist Clinching Full Back Support Cami
+        url: /shaping-lingerie/abdomen-flattening-180-cami-back-support/
+      - name: Abdomen Flattening 270° Waist Clinching Full Back Support Cami
+        url: /shaping-lingerie/abdomen-flattening-270-cami-full-back-support/
+      - name: Abdomen Flattening 270° Waist Clinching Full Back Support T Shirt
+        url: /shaping-lingerie/abdomen-flattening-270-t-shirt-full-back-support/
+      - name: Abdomen Flattening 270° Waist Clinching Back Support Cami
+        url: /shaping-lingerie/abdomen-flattening-270-cami-back-support/
+      - name: Tummy Flattener 240 Degree Side Cincher 3D T-Shirt Shaper
+        url: /shaping-lingerie/tummer-flattener-240-side-cincher/
   - name: Active
     url: /active/
     dropdown: true
