@@ -81,17 +81,21 @@ $(function() {
     //filterItems.off("animationend");
     console.log("filteritems" + new Date());
 
-    filterItems.addClass(animationName +  "Out fast animated")
+    var animationOut = animationName + "Out";
+
+    filterItems.addClass(animationOut,"faster animated");
     filterItems.one('animationend',function () {
       filterItems.hide();
-      filterItems.removeClass(animationName +  "Out fast animated");
+      filterItems.removeClass(animationName +  "Out faster animated");
       console.log("animationEnd");
 
       target.show();
-      target.addClass(animationName +  "In fast animated");
+      var animationIn = animationName + "In";
+      target.off("animationend");
+      target.addClass(animationIn,"faster animated");
 
       target.one('animationend',function() {
-        target.removeClass(animationName +  "In fast animated");
+        target.removeClass(animationName +  "In faster animated");
       });
     });
     // filterTl.to(filterItems,0.3,{opacity: 0, ease: Power1.easeInOut});
@@ -99,8 +103,10 @@ $(function() {
     // filterTl.to($(target),0,{display: "block"});
     // filterTl.to($(target),0.3,{opacity: 1, ease: Power1.easeInOut});
 
-    $(".filter-reset").show();
-    $(".filter-reset").animateCss("fadeIn");
+    if ($(".filter-reset").is(':hidden')) {
+      $(".filter-reset").show();
+      $(".filter-reset").animateCss("fadeIn");
+    }
   }
 
   $(".filter-reset").on("click",function() {
@@ -109,10 +115,7 @@ $(function() {
     $(this).closest(".filter-sidebar").find(".nav-link").removeClass("active");
     filterItems.off("animationend");
     filterItems.show();
-    filterItems.addClass('bounceIn fast animated');
-    filterItems.one('animationend',function () {
-      filterItems.removeClass("bounceIn fast animated");
-    });
+    filterItems.animateCss("bounceIn");
     $(this).animateCss("fadeOutLeft",function() { $(".filter-reset").hide() });
     console.log('fadeOut');
   });
