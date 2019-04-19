@@ -81,7 +81,10 @@ $(function() {
     //filterItems.off("animationend");
     console.log("filteritems" + new Date());
 
+    var animationIn = animationName + "In";
     var animationOut = animationName + "Out";
+
+    filterItems.removeClass(animationOut,"faster animated");
 
     filterItems.addClass(animationOut,"faster animated");
     filterItems.one('animationend',function () {
@@ -90,7 +93,6 @@ $(function() {
       console.log("animationEnd");
 
       target.show();
-      var animationIn = animationName + "In";
       target.off("animationend");
       target.addClass(animationIn,"faster animated");
 
