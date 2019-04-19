@@ -1,36 +1,36 @@
 $(function() {
 
-  "use strict";
+  'use strict';
 
   // Init polyfill stuff
   AOS.init();
-  Stickyfill.add($(".sticky-top"));
+  Stickyfill.add($('.sticky-top'));
   console.log(Stickyfill.stickies);
-  $(".slick-slider").slick({
+  $('.slick-slider').slick({
     autoplay: true,
     autoplaySpeed: 4000,
     dots: true
   });
 
   // Search bar
-  $(".search-svg").on("click",function() {
-    $(this).prev().addClass("active").focus();
-    $(this).addClass("active");
-    $(document).one("click.hideSearch", function hideSearch(event) {
-      if(!$(event.target).closest(".search").length ) {
-        $(".search-input").removeClass("active");
-        $(".search-svg").removeClass("active")
+  $('.search-svg').on('click',function() {
+    $(this).prev().addClass('active').focus();
+    $(this).addClass('active');
+    $(document).one('click.hideSearch', function hideSearch(event) {
+      if(!$(event.target).closest('.search').length ) {
+        $('.search-input').removeClass('active');
+        $('.search-svg').removeClass('active')
       }
     });
   });
 
-  $("[smooth-scroll]").on("click",function(event) {
+  $('[smooth-scroll]').on('click',function(event) {
     event.preventDefault();
-    var target = $(this).attr("href");
+    var target = $(this).attr('href');
     if ($(target).length) {
       TweenLite.to(window, 1, {scrollTo:{y: target, offsetY:70}});
     } else {
-      console.warn("Empty hash link at " + target);
+      console.warn('Empty hash link at ' + target);
     }
   });
 
@@ -38,87 +38,76 @@ $(function() {
     console.time('Hover');
     var menu = $(this).find('.dropdown-menu').first();
     // off the event again just incase
-    menu.off("animationend");
-    menu.addClass("show open");
+    menu.off('animationend');
+    menu.addClass('show open');
     console.timeEnd('Hover');
   }, function() {
     var menu = $(this).find('.dropdown-menu').first();
-    menu.removeClass("open");
-    menu.one("animationend",function() {
-       menu.removeClass("show");
-       //console.log("animation end!");
+    menu.removeClass('open');
+    menu.one('animationend',function() {
+       menu.removeClass('show');
+       //console.log('animation end!');
     });
     
   });
 
-  var filterItems = $(".filter-items > *");
+  var filterItems = $('.filter-items > *');
   //var filterTl = new TimelineLite();
 
   if (window.location.hash) {
     console.log(window.location.hash);
-    filterItem(filterItems,$("." + window.location.hash.substr(1)));
-    $("[data-toggle='filter'][href='" + "." + window.location.hash.substr(1) + "']").addClass("active");
+    filterItem(filterItems,$('.' + window.location.hash.substr(1)));
+    $('[data-toggle="filter"][href="' + '.' + window.location.hash.substr(1) + '"]').addClass('active');
   }
 
-  $("[data-toggle='filter']").on("click",function(event) {
+  $('[data-toggle="filter"]').on('click',function(event) {
     event.preventDefault();
 
     //filterTl = new TimelineLite();
 
-    $(this).closest(".filter-sidebar").find(".nav-link").removeClass("active");
-    $(this).addClass("active");
+    $(this).closest('.filter-sidebar').find('.nav-link').removeClass('active');
+    $(this).addClass('active');
     
-    var target = $(this).attr("href");
+    var target = $(this).attr('href');
     window.location.hash = target.substr(1);
 
     filterItem(filterItems,$(target));
   });
 
   function filterItem(filterItems,target) {
+    //target.off('animationend');
+    //filterItems.off('animationend');
+    console.log('filteritems' + new Date());
 
-    var animationName = 'bounce';
-    //target.off("animationend");
-    //filterItems.off("animationend");
-    console.log("filteritems" + new Date());
+    var animateOnce = false;
+    filterItems.removeClass('fadeShow');
+    filterItems.one('transitionend',function() {
+      if(!animateOnce) {
+        filterItems.off('transitionend')
+        target.off('transitionend');
 
-    var animationIn = animationName + "In";
-    var animationOut = animationName + "Out";
+        filterItems.hide();
+        target.show();
+        target.addClass('fadeShow');
 
-    filterItems.removeClass(animationOut,"faster animated");
-
-    filterItems.addClass(animationOut,"faster animated");
-    filterItems.one('animationend',function () {
-      filterItems.hide();
-      filterItems.removeClass(animationName +  "Out faster animated");
-      console.log("animationEnd");
-
-      target.show();
-      target.off("animationend");
-      target.addClass(animationIn,"faster animated");
-
-      target.one('animationend',function() {
-        target.removeClass(animationName +  "In faster animated");
-      });
+        animateOnce = true;
+      }
     });
-    // filterTl.to(filterItems,0.3,{opacity: 0, ease: Power1.easeInOut});
-    // filterTl.to(filterItems,0,{display: "none"});
-    // filterTl.to($(target),0,{display: "block"});
-    // filterTl.to($(target),0.3,{opacity: 1, ease: Power1.easeInOut});
 
-    if ($(".filter-reset").is(':hidden')) {
-      $(".filter-reset").show();
-      $(".filter-reset").animateCss("fadeIn");
-    }
+      $('.filter-reset').show();
+      $('.filter-reset').addClass("fadeShow");
   }
 
-  $(".filter-reset").on("click",function() {
+  $('.filter-reset').on('click',function() {
     event.preventDefault();
-    history.pushState("", document.title, window.location.pathname+ window.location.search);
-    $(this).closest(".filter-sidebar").find(".nav-link").removeClass("active");
-    filterItems.off("animationend");
+    history.pushState('', document.title, window.location.pathname+ window.location.search);
+    $(this).closest('.filter-sidebar').find('.nav-link').removeClass('active');
+    filterItems.off('transitionend');
     filterItems.show();
-    filterItems.animateCss("bounceIn");
-    $(this).animateCss("fadeOutLeft",function() { $(".filter-reset").hide() });
+    filterItems.addClass('fadeShow');
+    $(this).removeClass('fadeShow').one('animationend',function() {
+      $(this).hide();
+    });
     console.log('fadeOut');
   });
 
@@ -130,11 +119,17 @@ $.fn.extend({
     // if (!Array.isArray(animationNames)) {
     //   animationNames = [animationNames];
     // }
+
+    var animateOnce = false;
     this.addClass('animated');
     $(this).addClass(animationName).one(animationEnd, function () {
-      $(this).removeClass(animationName);
-      if (typeof(callback) === 'function') {
-        callback();
+      if (!animateOnce) {
+          $(this).removeClass(animationName);
+          if (typeof(callback) === 'function') {
+            callback();
+          }
+
+          animateOnce = true;
       }
     });
     return this;
