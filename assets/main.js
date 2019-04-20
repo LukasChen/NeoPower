@@ -16,10 +16,11 @@ $(function() {
   $('.search-svg').on('click',function() {
     $(this).prev().addClass('active').focus();
     $(this).addClass('active');
-    $(document).one('click.hideSearch', function hideSearch(event) {
+    $(document).on('click.hideSearch', function hideSearch(event) {
       if(!$(event.target).closest('.search').length ) {
         $('.search-input').removeClass('active');
         $('.search-svg').removeClass('active')
+        $(document).off('click.hideSearch');
       }
     });
   });
@@ -79,23 +80,24 @@ $(function() {
     //filterItems.off('animationend');
     console.log('filteritems' + new Date());
 
-    var animateOnce = false;
+    $('.filter-reset').show();
+    $('.filter-reset').addClass("fadeShow");
+
+    if (!$('.filter-items').find('.fadeShow').length) {
+      console.log('hello');
+      target.show();
+      target.addClass('fadeShow');
+      return;
+    }
+
     filterItems.removeClass('fadeShow');
-    filterItems.one('transitionend',function() {
-      if(!animateOnce) {
-        filterItems.off('transitionend')
-        target.off('transitionend');
+    filterItems.filter(':visible').first().one('transitionend',function() {
+      filterItems.off('transitionend');
 
-        filterItems.hide();
-        target.show();
-        target.addClass('fadeShow');
-
-        animateOnce = true;
-      }
+      filterItems.hide();
+      target.show();
+      target.addClass('fadeShow');
     });
-
-      $('.filter-reset').show();
-      $('.filter-reset').addClass("fadeShow");
   }
 
   $('.filter-reset').on('click',function() {

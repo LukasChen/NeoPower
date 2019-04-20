@@ -4,3 +4,35 @@
     //border-right: 1px solid #eee;
   }
 }
+
+.search {
+  position: relative;
+  width:100%;
+  overflow: hidden;
+}
+
+.search-input {
+  width: 0;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  height: 100%;
+
+  &.active {
+    width: 100%;
+    opacity: 1;
+  }
+}
+.search-svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  &.active {
+    background: $color-accent;
+    fill: #FFF;
+
+    &:hover {
+      background: darken($color-accent, 20%);
+    }
+  }
+}
