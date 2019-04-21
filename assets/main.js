@@ -12,6 +12,19 @@ $(function() {
     dots: true
   });
 
+  // $('#nav-logo').hide();
+
+  // var navShowOnce = false;
+  // $(window).on('scroll', function() {
+  //   var navOffsetTop = $('#main-nav').offset().top;
+  //   console.log($(window).scrollTop());
+  //   if ($(window).scrollTop() >= navOffsetTop ) {
+  //     $('#nav-logo').show();
+  //   } else {
+  //     $('#nav-logo').hide();
+  //   }
+  // });
+
   // Search bar
   $('.search-svg').on('click',function() {
     $(this).prev().addClass('active').focus();

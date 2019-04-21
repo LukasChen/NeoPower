@@ -92,7 +92,8 @@ main_menu:
     url: /
   - name: NeoPower Net
     url: /newpower-net/
-    dropdown: true
+    dropdown: 
+      fullWidth: true
     img: /neopower-net/3006-front.png
     subitems:
       - name: Waist Traning Corset
@@ -157,6 +158,10 @@ main_menu:
         url: /active/full-leggings-belt/
       - name: NeoPower Man Tank Top
         url: /active/neopower-man-tank-top/
+  - name: Accessories
+    url: /accessories/
+  - name: Innovation
+    url: /innovation/
   - name: Wholesale
     url: /wholesale/
 

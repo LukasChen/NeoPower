@@ -1,10 +1,12 @@
 const { src, watch, dest } = require("gulp");
 const sass = require("gulp-sass");
 const autoprefixer = require("gulp-autoprefixer");
+const sourcemaps = require('gulp-sourcemaps');
 const tildeImporter = require('node-sass-tilde-importer');
 
 function buildSass() {
   return src("./assets/main.scss")
+    .pipe(sourcemaps.init())
     .pipe(
       sass({
         outputStyle: "compressed",
@@ -13,6 +15,7 @@ function buildSass() {
       })
     )
     .pipe(autoprefixer())
+    .pipe(sourcemaps.write('./'))
     .pipe(dest("./assets"));
 }
 

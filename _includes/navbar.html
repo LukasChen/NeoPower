@@ -28,24 +28,25 @@
 <nav id="main-nav" class="mt-3 sticky-top navbar navbar-expand-lg navbar-light">
   <div class="container position-relative">
     
-    <a class="navbar-brand" href="{{ '/' | relative_url }}">NEOPOWER</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav d-flex justify-content-between" style="width: 100%">
+      <ul class="navbar-nav d-flex justify-content-between align-items-center" style="width: 100%">
+        <a id="nav-logo" class="navbar-brand mr-0 p-0" href="{{ '/' | relative_url }}">NEOPOWER</a>
         {% for menu in site.main_menu %}
-          <li class="nav-item {% if menu.dropdown %}dropdown{% endif %}">
+          <li class="nav-item {% if menu.dropdown %}dropdown{% endif %} {% if menu.dropdown.fullWidth %}position-static{% endif %}">
             <a class="nav-link {% if menu.dropdown %}dropdown-toggle{% endif %} {% if menu.url == page.url %}active{% endif %}" href="{{site.baseurl}}{{menu.url}}">
               {{menu.name}}
             </a>
             {% if menu.dropdown %}
-            <div class="dropdown-menu mega-dropdown container shadow" aria-labelledby="navbarDropdown">
+            {% assign category_selector = menu.name | downcase | replace: ' ', '' %}
+            {% assign columnLength = site.category_list[category_selector].size %}
+            <div class="dropdown-menu mega-dropdown shadow" aria-labelledby="navbarDropdown" {% unless menu.dropdown.fullWidth %}style="width: {{ columnLength | times: 18 | plus: 5}}rem"{% endunless %}>
               <div class="row">
-              {% assign category_selector = menu.name | downcase | replace: ' ', '' %}
               {% for categories in site.category_list[category_selector] %}
-              <div class="col-sm" style="max-width: 15rem">
-                <h5 class="dropdown-heading font-weight-bold">{{categories[0]}}</h5>
+              <div class="col-sm dropdown-column">
+                <h5 class="dropdown-heading">{{categories[0]}}</h5>
                 <ul class="nav flex-column">
                   {% for category in categories %}
                   {% if forloop.index == 1 %}
@@ -60,7 +61,7 @@
                 </ul>
               </div>
               {% endfor %}
-              <div class="col-sm-2 ml-auto">
+              <div class="col-sm ml-auto">
                 {% if menu.img contains "://" %}
                   {% assign menuImage = menu.img %}
                 {% else %}
