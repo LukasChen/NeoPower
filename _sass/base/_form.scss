@@ -1,0 +1,31 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+    border: none;
+    text-align: center;
+    background: #e4d8bc;
+    transition: all 0.2s ease-in-out;
+}
+
+.input-group {
+  transition: all 0.2s ease-in-out;
+  background: #e4d8bc;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 120px;
+}
+
+.color-option {
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}

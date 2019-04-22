@@ -7,9 +7,10 @@
   position: relative;
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
+  font-family: $font-roboto-regular;
 
   &.btn-lg {
-    padding: 15px 40px;
+    padding: 15px 60px;
     font-size: 1rem;
   }
 

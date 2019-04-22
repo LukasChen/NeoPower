@@ -12,6 +12,17 @@ $(function() {
     dots: true
   });
 
+  $('.slick-slider-thumbnail').slick({
+    autoplay: true,
+    autoplaySpeed: 4000,
+    dots: true,
+    customPaging: function(slider,i) {
+      var thumb = $(slider.$slides[i]).children().attr('src');
+      console.log(thumb);
+      return '<img class="img-fluid" style="height: 100%" src="' + thumb +  '">';
+    }
+  });
+
   // $('#nav-logo').hide();
 
   // var navShowOnce = false;
@@ -126,6 +137,28 @@ $(function() {
     console.log('fadeOut');
   });
 
+});
+
+$('.input-numerical-left').on('click',function() {
+  var input = $(this).next();
+  var minValue = parseInt(input.attr('min'));
+  console.log(minValue)
+  if (minValue == input.val()) {
+    alert('This is the minimum amount of quantity for order');
+    return;
+  }
+  input.val(parseInt(input.val()) - 1);
+});
+
+$('.input-numerical-right').on('click',function() {
+  var input = $(this).prev();
+  var maxValue = parseInt(input.attr('max'));
+  console.log(maxValue);
+  if (maxValue == input.val()) {
+    alert('This is the maximum amount of quantity for order');
+    return;
+  }
+  input.val(parseInt(input.val()) + 1);
 });
 
 $.fn.extend({

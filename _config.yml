@@ -160,6 +160,13 @@ main_menu:
         url: /active/neopower-man-tank-top/
   - name: Accessories
     url: /accessories/
+    subitems:
+      - name: Instawaist Belt
+        url: /accessories/instawaist-belt/
+      - name: PeezyBestie
+        url: /accessories/peezybestie/
+      - name: Optional Straps
+        url: /accessories/optional-straps/
   - name: Innovation
     url: /innovation/
   - name: Wholesale
@@ -187,5 +194,8 @@ footer:
     CA Transparent: https://www.google.com
     Accessibility: https://www.google.com
 
+
+banners:
+  - /banners/wanable.png
 
 paginition_size: 5
