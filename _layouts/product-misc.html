@@ -39,6 +39,10 @@ layout: default
   <div class="container">
     <div class="row">
       <div class="col-sm-6">
+
+        <!-- Use [0] to verify data type to be either string or array -->
+        {% if sitepage.feature_image[0] %}
+
         <div class="slick-slider-thumbnail">
               
           {% for feature_image_1 in sitepage.feature_image %}
@@ -54,6 +58,16 @@ layout: default
           {% endfor %}
 
         </div>
+
+        {% else %}
+          {% if sitepage.feature_image contains "://" %}
+            {% assign feature_image = sitepage.feature_image %}
+          {% else %}
+            {% capture feature_image %}assets/images{{sitepage.feature_image}}{% endcapture %}
+            {% assign feature_image = feature_image | relative_url %}
+          {% endif %}
+          <img class="img-fluid" src="{{ feature_image }}">
+        {% endif %}
       </div>
       <div class="col-sm-6">
         <h2 class="text-uppercase mb-3">{{ sitepage.title }}</h2>
@@ -61,7 +75,9 @@ layout: default
           <h3>$39.00</h3>
           <small class="text-muted">0401</small>
         </div>
+        <div class="user-content">
         {{ sitepage.content | markdownify }}
+        </div>
         
         <h5>Colors</h5>
         <div class="d-flex mb-3">

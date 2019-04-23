@@ -150,6 +150,20 @@ $('.input-numerical-left').on('click',function() {
   input.val(parseInt(input.val()) - 1);
 });
 
+$('.input-incremental').on('change',function() {
+  var value = $(this).val();
+  var min = $(this).attr('min');
+  var max = $(this).attr('max');
+  if (value < min) {
+    alert('This is the minimum amount of quantity for order');
+    $(this).val(min);
+  }
+  if (value > max) {
+    alert('This is the maximum amount of quantity for order');
+    $(this).val(max);
+  }
+});
+
 $('.input-numerical-right').on('click',function() {
   var input = $(this).prev();
   var maxValue = parseInt(input.attr('max'));
