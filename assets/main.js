@@ -60,12 +60,10 @@ $(function() {
   });
 
   $('.dropdown').hover(function() {
-    console.time('Hover');
     var menu = $(this).find('.dropdown-menu').first();
     // off the event again just incase
     menu.off('animationend');
     menu.addClass('show open');
-    console.timeEnd('Hover');
   }, function() {
     var menu = $(this).find('.dropdown-menu').first();
     menu.removeClass('open');
@@ -104,37 +102,33 @@ $(function() {
     //filterItems.off('animationend');
     console.log('filteritems' + new Date());
 
-    $('.filter-reset').show();
-    $('.filter-reset').addClass("fadeShow");
+    $('.filter-reset').transitionCss('fadeShow',{show: true});
 
     if (!$('.filter-items').find('.fadeShow').length) {
       console.log('hello');
-      target.show();
-      target.addClass('fadeShow');
+      target.transitionCss('fadeShow', {show: true});
       return;
     }
-
-    filterItems.removeClass('fadeShow');
-    filterItems.filter(':visible').first().one('transitionend',function() {
-      filterItems.off('transitionend');
-
-      filterItems.hide();
-      target.show();
-      target.addClass('fadeShow');
+    filterItems.transitionCss('fadeShow',{show: false, once: true},function() {
+      target.transitionCss('fadeShow', {show: true});
     });
+
+    // filterItems.removeClass('fadeShow');
+    // filterItems.filter(':visible').first().one('transitionend',function() {
+    //   filterItems.hide();
+
+      
+    // });
   }
 
-  $('.filter-reset').on('click',function() {
+  $('.filter-reset').on('click',function resetAll(event) {
     event.preventDefault();
     history.pushState('', document.title, window.location.pathname+ window.location.search);
+
     $(this).closest('.filter-sidebar').find('.nav-link').removeClass('active');
-    filterItems.off('transitionend');
-    filterItems.show();
-    filterItems.addClass('fadeShow');
-    $(this).removeClass('fadeShow').one('animationend',function() {
-      $(this).hide();
-    });
-    console.log('fadeOut');
+
+    filterItems.transitionCss('fadeShow',{show: true});
+    $(this).transitionCss('fadeShow',{show: false});
   });
 
 });
@@ -176,24 +170,54 @@ $('.input-numerical-right').on('click',function() {
 });
 
 $.fn.extend({
-  animateCss: function (animationName, callback) {
-    var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-    // if (!Array.isArray(animationNames)) {
-    //   animationNames = [animationNames];
-    // }
+  transitionCss: function(animationName, option, callback) {
+    var transitionend = 'webkitTransitionEnd mozTransitionEnd MSTransitionEnd otransitionend transitionend';
 
-    var animateOnce = false;
-    this.addClass('animated');
-    $(this).addClass(animationName).one(animationEnd, function () {
-      if (!animateOnce) {
-          $(this).removeClass(animationName);
+    $(this).off(transitionend);
+    if (option.show) {
+      $(this).show().addClass(animationName);
+      if (typeof(callback) === 'function') {
+        callback();
+      }
+    } else {
+      if (option.once) {
+        $(this).removeClass(animationName).filter(':visible').first().one(transitionend, function() {
+          $(this).hide();
           if (typeof(callback) === 'function') {
             callback();
           }
-
-          animateOnce = true;
+          return;
+        });
       }
-    });
-    return this;
+      $(this).removeClass(animationName).one(transitionend, function() {
+        $(this).hide();
+        if (typeof(callback) === 'function') {
+          callback();
+        }
+      });
+    }
   }
-});
+})
+
+// $.fn.extend({
+//   animateCss: function (animationName, callback) {
+//     var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+//     // if (!Array.isArray(animationNames)) {
+//     //   animationNames = [animationNames];
+//     // }
+
+//     var animateOnce = false;
+//     this.addClass('animated');
+//     $(this).addClass(animationName).one(animationEnd, function () {
+//       if (!animateOnce) {
+//           $(this).removeClass(animationName);
+//           if (typeof(callback) === 'function') {
+//             callback();
+//           }
+
+//           animateOnce = true;
+//       }
+//     });
+//     return this;
+//   }
+// });
