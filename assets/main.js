@@ -23,25 +23,21 @@ $(function() {
     }
   });
 
-  // $('#nav-logo').hide();
-
-  // var navShowOnce = false;
-  // $(window).on('scroll', function() {
-  //   var navOffsetTop = $('#main-nav').offset().top;
-  //   console.log($(window).scrollTop());
-  //   if ($(window).scrollTop() >= navOffsetTop ) {
-  //     $('#nav-logo').show();
-  //   } else {
-  //     $('#nav-logo').hide();
-  //   }
-  // });
+  $(window).on('scroll', function() {
+    var windowScroll = $(window).scrollTop();
+    if (windowScroll >= 140 ) {
+      $('#nav-logo').show();
+    } else {
+      $('#nav-logo').hide();
+    }
+  });
 
   // Search bar
   $('.search-svg').on('click',function() {
     $(this).prev().addClass('active').focus();
     $(this).addClass('active');
     $(document).on('click.hideSearch', function hideSearch(event) {
-      if(!$(event.target).closest('.search').length ) {
+      if(!$(event.target).closest('.search').length) {
         $('.search-input').removeClass('active');
         $('.search-svg').removeClass('active')
         $(document).off('click.hideSearch');
@@ -105,11 +101,11 @@ $(function() {
     $('.filter-reset').transitionCss('fadeShow',{show: true});
 
     if (!$('.filter-items').find('.fadeShow').length) {
-      console.log('hello');
       target.transitionCss('fadeShow', {show: true});
       return;
     }
-    filterItems.transitionCss('fadeShow',{show: false, once: true},function() {
+
+    filterItems.transitionCss('fadeShow',{show: false, once: true}, function callback() {
       target.transitionCss('fadeShow', {show: true});
     });
 
@@ -127,46 +123,45 @@ $(function() {
 
     $(this).closest('.filter-sidebar').find('.nav-link').removeClass('active');
 
-    filterItems.transitionCss('fadeShow',{show: true});
+    filterItems.transitionCss('fadeShow',{show: true, once: true});
     $(this).transitionCss('fadeShow',{show: false});
   });
 
-});
-
-$('.input-numerical-left').on('click',function() {
-  var input = $(this).next();
-  var minValue = parseInt(input.attr('min'));
-  console.log(minValue)
-  if (minValue == input.val()) {
-    alert('This is the minimum amount of quantity for order');
-    return;
-  }
-  input.val(parseInt(input.val()) - 1);
-});
-
-$('.input-incremental').on('change',function() {
-  var value = $(this).val();
-  var min = $(this).attr('min');
-  var max = $(this).attr('max');
-  if (value < min) {
-    alert('This is the minimum amount of quantity for order');
-    $(this).val(min);
-  }
-  if (value > max) {
-    alert('This is the maximum amount of quantity for order');
-    $(this).val(max);
-  }
-});
-
-$('.input-numerical-right').on('click',function() {
-  var input = $(this).prev();
-  var maxValue = parseInt(input.attr('max'));
-  console.log(maxValue);
-  if (maxValue == input.val()) {
-    alert('This is the maximum amount of quantity for order');
-    return;
-  }
-  input.val(parseInt(input.val()) + 1);
+  $('.input-numerical-left').on('click',function() {
+    var input = $(this).next();
+    var minValue = parseInt(input.attr('min'));
+    console.log(minValue)
+    if (minValue == input.val()) {
+      alert('This is the minimum amount of quantity for order');
+      return;
+    }
+    input.val(parseInt(input.val()) - 1);
+  });
+  
+  $('.input-incremental').on('change',function() {
+    var value = $(this).val();
+    var min = $(this).attr('min');
+    var max = $(this).attr('max');
+    if (value < min) {
+      alert('This is the minimum amount of quantity for order');
+      $(this).val(min);
+    }
+    if (value > max) {
+      alert('This is the maximum amount of quantity for order');
+      $(this).val(max);
+    }
+  });
+  
+  $('.input-numerical-right').on('click',function() {
+    var input = $(this).prev();
+    var maxValue = parseInt(input.attr('max'));
+    console.log(maxValue);
+    if (maxValue == input.val()) {
+      alert('This is the maximum amount of quantity for order');
+      return;
+    }
+    input.val(parseInt(input.val()) + 1);
+  });
 });
 
 $.fn.extend({
@@ -186,8 +181,8 @@ $.fn.extend({
           if (typeof(callback) === 'function') {
             callback();
           }
-          return;
         });
+        return;
       }
       $(this).removeClass(animationName).one(transitionend, function() {
         $(this).hide();

@@ -6,7 +6,7 @@
   min-width: 10rem;
   padding: 1.5rem 2rem;
   //min-width: 100%;
-  animation: openMenuReverse 0.2s 1 ease-in-out;
+  animation: openMenuReverse 0.2s 1 backwards ease-in-out;
   
   //display: block;me
   //visibility: hidden;
@@ -14,7 +14,7 @@
   //opacity: 0;
 
   &.open {
-    animation: openMenu 0.2s 1 ease-in-out;
+    animation: openMenu 0.2s 1 forwards ease-in-out;
   }
 }
 @keyframes openMenu{
