@@ -28,4 +28,11 @@ input[type=number] {
   cursor: pointer;
   border: 2px solid white;
   box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+  transform: scale3d(1,1,1);
+  transition: all 0.2s ease-in-out;
+
+  &.active {
+    transform: scale3d(1.1,1.1,1.1);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  }
 }

@@ -88,8 +88,6 @@ category_list:
       - Lower Body
 
 main_menu:
-  - name: Home
-    url: /
   - name: NeoPower Net
     url: /newpower-net/
     dropdown: 
@@ -176,7 +174,7 @@ main_menu:
 footer:
   columns:
     Company Info:
-      About NEOPOWER: https://google.com
+      About NEOPOWER: https://www.google.com
       NEOPOWER Intellectual Properties: https://www.google.com
       NEOPOWER Technology: https://www.google.com
       NEOPOWER Materials: https://www.google.com

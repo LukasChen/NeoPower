@@ -18,18 +18,26 @@ $(function() {
     dots: true,
     customPaging: function(slider,i) {
       var thumb = $(slider.$slides[i]).children().attr('src');
-      console.log(thumb);
       return '<img class="img-fluid" style="height: 100%" src="' + thumb +  '">';
     }
   });
 
+  var lastScroll = 0;
+
   $(window).on('scroll', function() {
     var windowScroll = $(window).scrollTop();
-    if (windowScroll >= 140 ) {
-      $('#nav-logo').show();
-    } else {
-      $('#nav-logo').hide();
+    var item = $('.navbar-scroll');
+    if (windowScroll >= 140 && lastScroll < 140 ) {
+      item.show();
+      item.each(function(i,obj) {
+        var animationName = $(this).attr('animation')
+        $(this).animateCss(animationName);
+      });
     }
+    if (windowScroll <= 140 && lastScroll > 140) {
+      item.hide();
+    }
+    lastScroll = windowScroll;
   });
 
   // Search bar
@@ -71,7 +79,6 @@ $(function() {
   });
 
   var filterItems = $('.filter-items > *');
-  //var filterTl = new TimelineLite();
 
   if (window.location.hash) {
     console.log(window.location.hash);
@@ -94,9 +101,6 @@ $(function() {
   });
 
   function filterItem(filterItems,target) {
-    //target.off('animationend');
-    //filterItems.off('animationend');
-    console.log('filteritems' + new Date());
 
     $('.filter-reset').transitionCss('fadeShow',{show: true});
 
@@ -108,13 +112,6 @@ $(function() {
     filterItems.transitionCss('fadeShow',{show: false, once: true}, function callback() {
       target.transitionCss('fadeShow', {show: true});
     });
-
-    // filterItems.removeClass('fadeShow');
-    // filterItems.filter(':visible').first().one('transitionend',function() {
-    //   filterItems.hide();
-
-      
-    // });
   }
 
   $('.filter-reset').on('click',function resetAll(event) {
@@ -162,6 +159,11 @@ $(function() {
     }
     input.val(parseInt(input.val()) + 1);
   });
+
+  $('.color-option').on('click',function() {
+    $('.color-option').removeClass('active');
+    $(this).addClass('active');
+  });
 });
 
 $.fn.extend({
@@ -170,20 +172,26 @@ $.fn.extend({
 
     $(this).off(transitionend);
     if (option.show) {
+      console.log($(this));
       $(this).show().addClass(animationName);
       if (typeof(callback) === 'function') {
         callback();
-      }
+      } 
     } else {
       if (option.once) {
-        $(this).removeClass(animationName).filter(':visible').first().one(transitionend, function() {
-          $(this).hide();
+        var $allThis = $(this);
+        $allThis.removeClass(animationName);
+        
+        $allThis.filter(':visible').first().one(transitionend, function() {
+          $allThis.hide();
+          
           if (typeof(callback) === 'function') {
             callback();
           }
         });
         return;
       }
+      $(this).off(transitionend);
       $(this).removeClass(animationName).one(transitionend, function() {
         $(this).hide();
         if (typeof(callback) === 'function') {
@@ -191,28 +199,20 @@ $.fn.extend({
         }
       });
     }
+  },
+  animateCss: function (animationName, callback) {
+    var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+    // if (!Array.isArray(animationNames)) {
+    //   animationNames = [animationNames];
+    // }
+
+    $(this).addClass('animated');
+    $(this).addClass(animationName).one(animationEnd, function () {
+      $(this).removeClass(animationName);
+      if (typeof(callback) === 'function') {
+        callback();
+      }
+    });
+    return this;
   }
-})
-
-// $.fn.extend({
-//   animateCss: function (animationName, callback) {
-//     var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-//     // if (!Array.isArray(animationNames)) {
-//     //   animationNames = [animationNames];
-//     // }
-
-//     var animateOnce = false;
-//     this.addClass('animated');
-//     $(this).addClass(animationName).one(animationEnd, function () {
-//       if (!animateOnce) {
-//           $(this).removeClass(animationName);
-//           if (typeof(callback) === 'function') {
-//             callback();
-//           }
-
-//           animateOnce = true;
-//       }
-//     });
-//     return this;
-//   }
-// });
+});
