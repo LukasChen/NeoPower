@@ -1,6 +1,7 @@
 ---
 layout: product
-title: Bodysuit Shorts Lucia
+title: Shorts Shaper
+subtitle: 3008 Lucia
 price: '38.00'
 product_image: /neopower-net/3008-front.png
 product_image_hover: /neopower-net/3008-side.png
@@ -15,4 +16,5 @@ categories:
   - Post Surgical
   - Postpartum
   - Body Shapers
+  - 3 hooks & eye
 ---

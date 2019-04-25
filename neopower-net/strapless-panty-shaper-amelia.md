@@ -1,6 +1,7 @@
 ---
 layout: product
-title: Strapless Panty Shaper Amelia
+title: Strapless Panty Shaper
+subtitle: 3056 Amelia
 price: '38.00'
 product_image: /neopower-net/3056-front.png
 product_image_hover: /neopower-net/3056-back.png
@@ -10,5 +11,6 @@ categories:
   - Rear & Hips
   - Daily Use
   - Postpartum
-  - Panties
+  - Body Panties
+  - Middle Hook Eye & Zipper
 ---

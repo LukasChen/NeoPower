@@ -172,7 +172,6 @@ $.fn.extend({
 
     $(this).off(transitionend);
     if (option.show) {
-      console.log($(this));
       $(this).show().addClass(animationName);
       if (typeof(callback) === 'function') {
         callback();
@@ -180,10 +179,9 @@ $.fn.extend({
     } else {
       if (option.once) {
         var $allThis = $(this);
-        $allThis.removeClass(animationName);
-        
-        $allThis.filter(':visible').first().one(transitionend, function() {
+        $allThis.removeClass(animationName).filter(':visible').first().one(transitionend, function() {
           $allThis.hide();
+          $allThis.off(transitionend);
           
           if (typeof(callback) === 'function') {
             callback();

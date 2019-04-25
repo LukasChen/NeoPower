@@ -45,7 +45,7 @@ category_list:
   neopowernet:
     collections:
       - The Upgraders
-      - The Infinites
+      - The Infinite
     zones:
       - Tummy & waist
       - Back Support
@@ -61,12 +61,15 @@ category_list:
       - Postpartum
     style:
       - Bodysuit Shaper
+      - Body Shapers
       - Body Panties
       - Cinchers
       - Vest
     closures:
-      - Hooks & Eye
-      - Invisible
+      - 3 Hooks & Eye
+      - Side Hook Eye & Zipper
+      - Middle Hook Eye & Zipper
+      - Step In
   shapinglingerie:
     zones:
       - Tummy & Waist
@@ -94,24 +97,48 @@ main_menu:
       fullWidth: true
     img: /neopower-net/3006-front.png
     subitems:
-      - name: Waist Traning Corset
-        url: /neopower-net/waist-training-corset/
-      - name: Semi Waist Trainer Alexandra
+      - name: Silvana Waist Traning Corset
+        url: /neopower-net/waist-training-corset-silvana/
+      - name: Lana Step-In Waist Training Corset
+        url: /neopower-net/step-in-waist-traning-corset-lana/
+      - name: Alexandra Semi Waist Trainer
         url: /neopower-net/semi-waist-training-alexandra/
       - name: Semi Waist Trainer Emma
         url: /neopower-net/semi-waist-training-emma/
       - name: Waist Training Vest
         url: /neopower-net/waist-training-vest-kate/
+      - name: Ashiley Step-In Traning Vest
+        url: /neopower-net/step-in-training-vest-ashiley/
       - name: Strapless Panty Shaper Amelia
         url: /neopower-net/strapless-panty-shaper-amelia/
+      - name: Adina Strapless Mid Thigh Shaper
+        url: /neopower-net/strapless-mid-thigh-shaper-adina/
+      - name: Olivia Strapless Mid Thigh Shaper
+        url: /neopower-net/strapless-mid-thigh-shaper-olivia/
+      - name: May Short Shaper
+        url: /neopower-net/shorts-shaper-may/ 
       - name: Bodysuit Shorts Ellena
-        url: /neopower-net/bodysuit-shorts-ellena/
+        url: /neopower-net/shorts-shaper-ellena/
       - name: Bodysuit Shorts Lucia
         url: /neopower-net/bodysuit-shorts-lucia/
-      - name: Bodysuit Mid-Thighs Julia
+      - name: Unamed
         url: /neopower-net/bodysuit-mid-thighs-julia/
-      - name: Bodysuit Mid-Thighs Catalina
+      - name: Unamed
+        url: /neopower-net/mid-thigh-shaper-liz/
+      - name: Unamed
         url: /neopower-net/bodysuit-mid-thighs-catalina/
+      - name: Unamed
+        url: /neopower-net/capri-shaper-isabela/
+      - name: Unamed
+        url: /neopower-net/capri-shaper-scarlet/
+      - name: Unamed
+        url: /neopower-net/capri-shaper-talley/
+      - name: Unamed
+        url: /neopower-net/infinite-shorts-shaper-gisela/
+      - name: Unamed
+        url: /neopower-net/infinite-mid-thigh-shaper-freya/
+      - name: Unamed
+        url: /neopower-net/infinite-capri-shaper-roxie/
   - name: Shaping Lingerie
     url: /shaping-lingerie/
     img: /shaping-lingerie/3098-front.png
