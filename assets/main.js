@@ -24,7 +24,11 @@ $(function() {
 
   var lastScroll = 0;
 
-  $(window).on('scroll', function() {
+  slideInLogo();
+
+  $(window).on('scroll', slideInLogo);
+
+  function slideInLogo () {
     var windowScroll = $(window).scrollTop();
     var item = $('.navbar-scroll');
     if (windowScroll >= 140 && lastScroll < 140 ) {
@@ -38,7 +42,7 @@ $(function() {
       item.hide();
     }
     lastScroll = windowScroll;
-  });
+  }
 
   // Search bar
   $('.search-svg').on('click',function() {

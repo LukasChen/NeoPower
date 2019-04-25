@@ -1,7 +1,7 @@
 .fadeReady {
   transition: all 0.2s ease-in-out;
   opacity: 0;
-  transform: scale3d(.9,.9,.9);
+  transform: scale3d(.9,.9,.9) !important;
 }
 
 .fadeShow {
