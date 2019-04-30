@@ -3,8 +3,9 @@ layout: product
 title: Capri Shaper 
 subtitle: 3042 Tally
 price: '38.00'
-product_image: /neopower-net/3042-front.png
-product_image_hover: /neopower-net/3042-back.png
+feature_image: 
+  - /neopower-net/3042-front.png
+  - /neopower-net/3042-back.png
 categories: 
   - The Upgraders
   - Tummy & Waist

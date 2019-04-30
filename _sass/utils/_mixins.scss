@@ -1,0 +1,21 @@
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints,$name);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: map-get($breakpoints,$name);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

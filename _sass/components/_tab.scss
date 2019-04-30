@@ -1,0 +1,20 @@
+.nav-tabs {
+  border-bottom: 1px solid #e1d8b9;
+
+  .nav-link {
+    text-transform: uppercase;
+    
+    &.active, &:hover {
+      border-color:transparent;
+      border-bottom: 1px solid #000;
+    }
+    &.active {
+      font-weight: bold;
+    }
+  }
+}
+
+.tab-pane {
+  padding-top: 1rem;
+  margin-bottom: 1.5rem;
+}

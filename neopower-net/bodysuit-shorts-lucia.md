@@ -3,8 +3,9 @@ layout: product
 title: Shorts Shaper
 subtitle: 3008 Lucia
 price: '38.00'
-product_image: /neopower-net/3008-front.png
-product_image_hover: /neopower-net/3008-side.png
+feature_image: 
+  - /neopower-net/3008-front.png
+  - /neopower-net/3008-side.png
 categories: 
   - The Upgraders
   - Tummy & Waist

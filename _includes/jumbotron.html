@@ -1,16 +1,28 @@
-{% if page.feature_image contains "://" %}
+{% if page.jumbotron.img contains "://" %}
   {% assign feature_image = feature_image %}
 {% else %}
-  {% capture feature_image %}assets/images{{page.feature_image}}{% endcapture %}
+  {% capture feature_image %}assets/images{{page.jumbotron.img}}{% endcapture %}
   {% assign feature_image = feature_image | relative_url %}
 {% endif %}
 
-<div class="container mt-4 mb-5">
-  {% unless page.only_feature_image %}
+<div class="container mt-0 mt-md-4 mb-5 jumbo-container">
+  <div class="jumbo-container shadow rounded">
+  {% unless page.jumbotron.only_feature_image %}
     <div class="jumbotron">
       <h1 class="display-4">{{page.title}}</h1>
     </div>
     {% else %}
-    <img src="{{feature_image}}" class="img-fluid rounded shadow">
+    <div class="row no-gutters">
+      <div class="col-lg-5 {% if page.jumbotron.invert %}text-white{% endif %}" 
+        style="{% if page.jumbotron.color %}background-color: {{ page.jumbotron.color }}{% endif %}">
+        <div class="p-4">
+          {{page.jumbotron.content | markdownify }}
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <img src="{{feature_image}}" class="img-fluid" style="object-fit: cover; height: 100%">
+      </div>
+    </div>
     {% endunless %}
+    </div>
   </div>

@@ -3,8 +3,9 @@ layout: product
 title: Capri Shaper 
 subtitle: 3024 Isabela
 price: '38.00'
-product_image: /neopower-net/3024-front.png
-product_image_hover: /neopower-net/3024-side.png
+feature_image: 
+  - /neopower-net/3024-front.png
+  - /neopower-net/3024-side.png
 categories: 
   - The Upgraders
   - Tummy & Waist

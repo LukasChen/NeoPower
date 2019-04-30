@@ -5,26 +5,34 @@
 @import 
   "utils/colors",
   "utils/borders",
-  "utils/polyfill";
+  "utils/polyfill",
+  "utils/variable",
+  "utils/mixins";
 
 @import 
   "base/base",
   "base/animation",
-  "base/form";
+  "base/form",
+  "base/formatting";
 
 @import
   "components/icons",
   "components/buttons",
+  "components/image",
   "components/banner",
   "components/dropdown",
-  "components/nav";
+  "components/nav",
+  "components/tab",
+  "components/product-card",
+  "components/feature-section",
+  "components/jumbotron";
 
 @import 
   "layout/header",
   "layout/navbar",
-  "layout/feature-section",
+  "layout/page",
   "layout/product-overview",
-  "layout/product-card",
+  "layout/product-page",
   "layout/filter-sidebar",
   "layout/categories",
   "layout/slideshow",

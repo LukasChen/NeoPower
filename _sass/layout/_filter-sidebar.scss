@@ -1,7 +1,10 @@
 .filter-sidebar {
-  position: sticky;
-  overflow-y: auto;
-  height: calc(100vh - 70px);
+
+  @include media-breakpoint-up (md) {
+    position: sticky;
+    overflow-y: auto;
+    height: calc(100vh - 70px);
+  }
 }
 
 .filter-heading {

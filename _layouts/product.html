@@ -2,7 +2,172 @@
 layout: default
 ---
 
-<div class="container">
-  <h1>{{page.title}}</h1>
-  {{content}}
+<div class="feature-section product-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5">
+
+        <!-- Use [0] to verify data type to be either string or array -->
+        {% if page.feature_image[0] %}
+
+        <div class="slick-slider-thumbnail">
+              
+          {% for feature_image_1 in page.feature_image %}
+            {% if feature_image_1 contains "://" %}
+              {% assign feature_image = feature_image_1 %}
+            {% else %}
+              {% capture feature_image_2 %}assets/images{{feature_image_1}}{% endcapture %}
+              {% assign feature_image = feature_image_2 | relative_url %}
+            {% endif %}
+            <div>
+            <img class="img-fluid" src="{{ feature_image }}">
+            </div>
+          {% endfor %}
+
+        </div>
+
+        {% else %}
+          {% if page.feature_image contains "://" %}
+            {% assign feature_image = page.feature_image %}
+          {% else %}
+            {% capture feature_image %}assets/images{{page.feature_image}}{% endcapture %}
+            {% assign feature_image = feature_image | relative_url %}
+          {% endif %}
+          <img class="img-fluid" src="{{ feature_image }}">
+        {% endif %}
+      </div>
+      <div class="col-sm-7">
+        <h2 class="">{{ page.title }}</h2>
+        <h5 class="mb-3 text-muted">{{ page.subtitle }}</h5>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h3>$39.00</h3>
+          <h6>Availabiliy: <span style="color: green">In Stock</span></h6>
+        </div>
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" data-toggle="tab" href="#nav-product-desc" role="tab" aria-controls="nav-home" aria-selected="true">Product Description</a>
+            <a class="nav-item nav-link" data-toggle="tab" href="#nav-size-chart" role="tab" aria-controls="nav-profile" aria-selected="false">Size Charts</a>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active user-content" id="nav-product-desc" role="tabpanel" aria-labelledby="nav-product-description">
+            {{ content }}
+          </div>
+          <div class="tab-pane fade" id="nav-size-chart" role="tabpanel" aria-labelledby="nav-size-chart">
+            Another One
+          </div>
+        </div>
+        
+        <h5>Size</h5>
+        <div class="d-flex mb-3">
+          <div class="product-options size-options">S</div>
+          <div class="product-options size-options">M</div>
+          <div class="product-options size-options">L</div>
+          <div class="product-options size-options">XL</div>
+          <div class="product-options size-options disabled">2XL</div>
+          <div class="product-options size-options disabled">3XL</div>
+          <div class="product-options size-options disabled">4XL</div>
+        </div>
+
+        <h5>Colors</h5>
+        <div class="d-flex mb-3">
+          <div class="color-option product-options" style="background-color: #e4c5b7"></div>
+          <div class="color-option product-options" style="background-color: #df4468"></div>
+        </div>
+        <div class="d-flex">
+          <div>
+            <h5>Quantity</h5>
+            <div class="input-group input-group-numerical">
+              <span class="input-group-btn input-numerical-left">
+                <button type="button" class="btn btn-white">-</button>
+              </span>
+             <input class="form-control" type="number" value="1" min="1" max="12">
+             <span class="input-group-btn input-numerical-right">
+               <button type="button" class="btn btn-white">+</button>
+             </span>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-lg ml-auto">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="feature-section mt-5 container-fluid">
+  <h2 class="text-uppercase container text-center section-heading">Suggested Accessories</h2>
+  <div class="slick-slider">
+      {% for menu in site.main_menu %}
+
+      {% if menu.url == '/accessories/' %}
+
+      {% for subitem in menu.subitems %}
+
+
+      {% for sitepage in site.pages %}
+
+
+      {% if subitem.url == sitepage.url %}
+      <div class="feature-section product-misc">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+        
+                <!-- Use [0] to verify data type to be either string or array -->
+
+
+                  {% if sitepage.feature_image contains "://" %}
+                    {% assign feature_image = sitepage.feature_image[0] %}
+                  {% else %}
+                    {% capture feature_image %}assets/images{{sitepage.feature_image[0]}}{% endcapture %}
+                    {% assign feature_image = feature_image | relative_url %}
+                  {% endif %}
+                  <img class="img-fluid" src="{{ feature_image }}">
+              </div>
+              <div class="col-sm-6">
+                <h2 class="text-uppercase mb-3">{{ sitepage.title }}</h2>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h3>$39.00</h3>
+                  <small class="text-muted">0401</small>
+                </div>
+                <div class="user-content">
+                {{ sitepage.content | markdownify | truncate: 100, '...' }}
+                </div>
+                
+                <h5>Colors</h5>
+                <div class="d-flex mb-3">
+                  <div class="color-option product-options" style="background-color: #e4c5b7"></div>
+                  <div class="color-option product-options" style="background-color: #df4468"></div>
+                </div>
+                <div class="d-flex">
+                  <div>
+                    <h5>Quantity</h5>
+                    <div class="input-group input-group-numerical">
+                      <span class="input-group-btn input-numerical-left">
+                        <button type="button" class="btn btn-white">-</button>
+                      </span>
+                     <input class="form-control" type="number" value="1" min="1" max="12">
+                     <span class="input-group-btn input-numerical-right">
+                       <button type="button" class="btn btn-white">+</button>
+                     </span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary btn-lg ml-auto">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% endif %}
+
+      {% endfor %}
+
+      {% endfor %}
+
+      {% endif %}
+
+      {% endfor %}
+  </div>
+
 </div>

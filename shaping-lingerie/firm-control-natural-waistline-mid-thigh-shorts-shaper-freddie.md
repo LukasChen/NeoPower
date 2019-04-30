@@ -3,8 +3,9 @@ layout: product
 title: Firm control natraul waistline 38% spandex powernet Capri shorts shaper
 subtitle: 9046 Freddie
 price: '38.00'
-product_image: /shaping-lingerie/9046-front.png
-product_image_hover: /shaping-lingerie/9046-back.png
+feature_image: 
+  - /shaping-lingerie/9046-front.png
+  - /shaping-lingerie/9046-back.png
 categories: 
   - Tummy & Waist
   - Rear & Hips

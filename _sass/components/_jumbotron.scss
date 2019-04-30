@@ -1,0 +1,7 @@
+.jumbo-container {
+  @include media-breakpoint-down(md) {
+    padding: 0;
+    width: auto;
+    margin: 0;
+  }
+}

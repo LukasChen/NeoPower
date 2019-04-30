@@ -3,11 +3,37 @@
   //padding-top: 0;
   //padding-bottom: 0;
   //font-size: 1.2em;
-  z-index: 9999;
+  z-index: 1030;
+  @include media-breakpoint-up(md) {
+    margin-top: 1.5rem;
+  }
+
+  .navbar-toggler {
+    border: 0;
+    color: $color-accent;
+  }
+
+  .shopping-basket {
+    @include media-breakpoint-up(md) {
+      order: 3;
+    }
+  }
 
   .nav-link {
     color: rgba(93,93,93,0.9);
     transition: color 0.2s ease;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 1px solid #eee;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    @include media-breakpoint-up(md) {
+      padding: 0.3rem 1rem;
+      border: 0;
+    }
     //font-weight: bold;
 
     &:hover, &:focus, &:active {

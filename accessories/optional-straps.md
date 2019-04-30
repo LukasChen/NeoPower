@@ -1,7 +1,8 @@
 ---
 layout: product
 title: Optional Straps
-feature_image: /accessories/optional-straps/extra-straps-back-presentation.png
+feature_image: 
+  - /accessories/optional-straps/extra-straps-back-presentation.png
 ---
 
 *NEOPOWER* is all about your optimal comfort. For some of our  high waist 

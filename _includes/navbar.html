@@ -6,8 +6,8 @@
         <option>Portuguese</option>
       </select> -->
     </div>
-    <div class="col-sm-4">
-      <a href="{{ '/' | relative_url }}">
+    <div class="col-sm-4 text-center mb-2 mb-sm-0">
+      <a class="d-block" href="{{ '/' | relative_url }}">
         <img src="{{"/assets/images/neopower-logo.jpg" | relative_url }}" class="img-fluid">
       </a>
     </div>
@@ -15,29 +15,32 @@
       <div class="d-flex header-icons" role="group">
         <div class="search rounded-pill">
           <input type="text" class="search-input ml-auto form-control rounded-pill" placeholder="Search">
-          <button class="search-svg btn bmd-btn-icon">
+          <button class="search-svg btn bmd-btn-icon svg-icons">
             {% include icons/baseline-search-24px.svg %}
           </button>
         </div>
         <button class="btn hover-accent" data-toggle="modal" data-target="#languageModal">English</button>
-        <button class="btn bmd-btn-icon">
+        <button class="btn bmd-btn-icon svg-icons">
           {% include icons/baseline-shopping_basket-24px.svg %}
         </button>
       </div>
     </div>
   </div>
 </div>
-<nav id="main-nav" class="mt-3 sticky-top navbar navbar-expand-lg navbar-light">
+<nav id="main-nav" class="sticky-top navbar navbar-expand-lg navbar-light">
   <div class="container position-relative">
     
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler svg-icons" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      {% include icons/baseline-menu-24px.svg %}
+    </button>
+    <a id="nav-logo" animation="fadeInLeft" class="navbar-brand mr-0 p-0 navbar-scroll" style="height: 37px;display:none" href="{{ '/' | relative_url }}">
+      <img class="img-fluid" src="{{ '/assets/images/neopower-logo-small.png' | relative_url }}">
+    </a>
+    <button class="btn shopping-basket bmd-btn-icon navbar-scroll" animation="fadeInRight" style="display:none;">
+      {% include icons/baseline-shopping_basket-24px.svg %}
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav d-flex justify-content-between align-items-center" style="width: 100%">
-        <a id="nav-logo" animation="fadeInLeft" class="navbar-brand mr-0 p-0 navbar-scroll" style="display: none" href="{{ '/' | relative_url }}">
-          <img class="img-fluid" src="{{ '/assets/images/neopower-logo-small.png' | relative_url }}">
-        </a>
         {% for menu in site.main_menu %}
           <li class="nav-item {% if menu.dropdown %}dropdown{% endif %} {% if menu.dropdown.fullWidth %}position-static{% endif %}">
             <a class="nav-link {% if menu.dropdown %}dropdown-toggle{% endif %} {% if menu.url == page.url %}active{% endif %}" href="{{site.baseurl}}{{menu.url}}">
@@ -87,9 +90,6 @@
             {% endif %}
           </li>
         {% endfor %}
-        <button class="btn bmd-btn-icon navbar-scroll" animation="fadeInRight" style="display:none">
-          {% include icons/baseline-shopping_basket-24px.svg %}
-        </button>
       </ul>
     </div>
   </div> 

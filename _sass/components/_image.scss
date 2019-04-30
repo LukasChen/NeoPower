@@ -1,0 +1,6 @@
+.responsive-small-img {
+  @include media-breakpoint-down(sm) {
+    max-width: 200px;
+    text-align: center;
+  }
+}

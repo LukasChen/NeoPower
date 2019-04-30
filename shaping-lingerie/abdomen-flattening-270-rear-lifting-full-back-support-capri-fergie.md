@@ -3,8 +3,9 @@ layout: product
 title: 3D Cut 270°Abdomen Flattening Waist Cinching Rear lifting Full Back Support capri bodysuit shaper
 subtitle: 9031 fergie
 price: '38.00'
-product_image: /shaping-lingerie/9031-front.png
-product_image_hover: /shaping-lingerie/9031-back.png
+feature_image: 
+  - /shaping-lingerie/9031-front.png
+  - /shaping-lingerie/9031-back.png
 categories: 
   - Tummy & Waist
   - Back Support

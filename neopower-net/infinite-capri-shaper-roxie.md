@@ -3,8 +3,9 @@ layout: product
 title: Infinite Capri Shaper 
 subtitle: 9012 Roxie
 price: '38.00'
-product_image: /neopower-net/9012-front.png
-product_image_hover: /neopower-net/9012-side.png
+feature_image: 
+  - /neopower-net/9012-front.png
+  - /neopower-net/9012-side.png
 categories: 
   - The Infinite
   - Tummy & Waist

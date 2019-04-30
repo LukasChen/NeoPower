@@ -3,8 +3,9 @@ layout: product
 title: Step-In Waist Traning Corset
 subtitle: 3091 Ashiley
 price: '38.00'
-product_image: /neopower-net/3091-front.png
-product_image_hover: /neopower-net/3091-back.png
+feature_image:
+  - /neopower-net/3091-front.png
+  - /neopower-net/3091-back.png
 categories: 
   - The Infinite
   - Tummy & Waist

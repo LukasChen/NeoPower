@@ -1,4 +1,5 @@
 .mega-dropdown {
+  //display: none;
   border-radius: 0;
   border: 0;
   background: #FFF;
@@ -15,6 +16,12 @@
 
   &.open {
     animation: openMenu 0.2s 1 forwards ease-in-out;
+  }
+
+  @include media-breakpoint-up(md) {
+    &.dropdown-menu.show {
+      display: block;
+    }
   }
 }
 @keyframes openMenu{
@@ -39,18 +46,26 @@
   }
 }
 
+.dropdown-menu.show {
+  display: none;
+}
+
 .dropdown-heading {
   padding-bottom: 0.5rem;
   text-transform: capitalize;
 }
 .dropdown {
   
-
   > .dropdown-toggle::after {
-    border-right-width: 0.2em;
-    border-left-width: 0.2em;
-    margin-left: 0.1em;
-    vertical-align: middle;
+    content: none;
+
+    @include media-breakpoint-up(md) {
+      content:"";
+      border-right-width: 0.2em;
+      border-left-width: 0.2em;
+      margin-left: 0.1em;
+      vertical-align: middle;
+    }
   }
 }
 .dropdown-item {

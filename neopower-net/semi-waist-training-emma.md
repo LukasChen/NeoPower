@@ -3,8 +3,9 @@ layout: product
 title: Semi Waist Training
 subtitle: 3032 Emma
 price: '38.00'
-product_image: /neopower-net/3032-front.png
-product_image_hover: /neopower-net/3032-back.png
+feature_image:
+  - /neopower-net/3032-front.png
+  - /neopower-net/3032-back.png
 categories: 
   - The Upgraders
   - Tummy Waist

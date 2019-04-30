@@ -1,4 +1,4 @@
-.product-overview {
+.product-feature {
 
   &-item {
     text-align: center;
@@ -55,5 +55,25 @@
   &-list {
     font-size: 0.8em;
     line-height: 1.2;
+    list-style: none;
+    padding-left: 0;
+  }
+}
+
+.product-overview {
+  @include media-breakpoint-down(md) {
+    margin-left: -6px;
+    margin-right: -6px;
+  }
+
+  &-item {
+    @include media-breakpoint-down(md) {
+      padding-left: 6px;
+      padding-right: 6px;
+
+      &-body {
+        padding: 10px;
+      }
+    }
   }
 }

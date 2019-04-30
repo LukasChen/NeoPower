@@ -1,4 +1,8 @@
 .slick-next,.slick-prev {
+  display: none !important;
+  @include media-breakpoint-up(md) {
+    display: inline-block !important;
+  }
   z-index: 1000;
   width: 64px;
   height: 64px;
