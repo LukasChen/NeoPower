@@ -5,3 +5,10 @@
     margin: 0;
   }
 }
+
+.jumbo-content {
+  padding: 0.5rem;
+  @include media-breakpoint-up(md) {
+    padding: 1.5rem
+  }
+}

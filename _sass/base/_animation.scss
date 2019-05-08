@@ -8,3 +8,7 @@
   opacity: 1 !important;
   transform: scale3d(1,1,1) !important;
 }
+
+.rotate-180 {
+  transform: rotate(180deg);
+}

@@ -19,3 +19,9 @@
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
 }
+
+#filter-sidebar-content {
+  @include media-breakpoint-up(md) {
+    display: block !important
+  }
+}

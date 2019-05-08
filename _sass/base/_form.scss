@@ -45,6 +45,7 @@ input[type=number] {
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  margin-bottom: 0.5rem;
   &.active {
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
     border-color: #000;

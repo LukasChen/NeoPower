@@ -5,7 +5,7 @@ layout: default
 <div class="feature-section product-page">
   <div class="container">
     <div class="row">
-      <div class="col-sm-5">
+      <div class="col-sm-5 mb-4">
 
         <!-- Use [0] to verify data type to be either string or array -->
         {% if page.feature_image[0] %}
@@ -39,13 +39,13 @@ layout: default
       <div class="col-sm-7">
         <h2 class="">{{ page.title }}</h2>
         <h5 class="mb-3 text-muted">{{ page.subtitle }}</h5>
-        <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="d-flex justify-content-between align-items-center mb-5">
           <h3>$39.00</h3>
           <h6>Availabiliy: <span style="color: green">In Stock</span></h6>
         </div>
         <nav>
           <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" data-toggle="tab" href="#nav-product-desc" role="tab" aria-controls="nav-home" aria-selected="true">Product Description</a>
+            <a class="nav-item nav-link active" data-toggle="tab" href="#nav-product-desc" role="tab" aria-controls="nav-home" aria-selected="true"><span class="d-none d-md-block">Product</span> Description</a>
             <a class="nav-item nav-link" data-toggle="tab" href="#nav-size-chart" role="tab" aria-controls="nav-profile" aria-selected="false">Size Charts</a>
           </div>
         </nav>
@@ -59,7 +59,7 @@ layout: default
         </div>
         
         <h5>Size</h5>
-        <div class="d-flex mb-3">
+        <div class="d-flex mb-3 flex-wrap">
           <div class="product-options size-options">S</div>
           <div class="product-options size-options">M</div>
           <div class="product-options size-options">L</div>
@@ -74,10 +74,10 @@ layout: default
           <div class="color-option product-options" style="background-color: #e4c5b7"></div>
           <div class="color-option product-options" style="background-color: #df4468"></div>
         </div>
-        <div class="d-flex">
+        <div class="d-md-flex">
           <div>
             <h5>Quantity</h5>
-            <div class="input-group input-group-numerical">
+            <div class="input-group input-group-numerical mb-4">
               <span class="input-group-btn input-numerical-left">
                 <button type="button" class="btn btn-white">-</button>
               </span>
@@ -139,10 +139,10 @@ layout: default
                   <div class="color-option product-options" style="background-color: #e4c5b7"></div>
                   <div class="color-option product-options" style="background-color: #df4468"></div>
                 </div>
-                <div class="d-flex">
+                <div class="d-md-flex">
                   <div>
                     <h5>Quantity</h5>
-                    <div class="input-group input-group-numerical">
+                    <div class="input-group input-group-numerical mb-4">
                       <span class="input-group-btn input-numerical-left">
                         <button type="button" class="btn btn-white">-</button>
                       </span>

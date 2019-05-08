@@ -86,26 +86,38 @@ $(function() {
   var filterItems = $('.filter-items > *');
 
   if (window.location.hash) {
-    console.log(window.location.hash);
-    filterItem(filterItems,$('.' + window.location.hash.substr(1)));
-    $('[data-toggle="filter"][href="' + '.' + window.location.hash.substr(1) + '"]').addClass('active');
+    var target = window.location.hash.split('|')[0].substr(1);
+    var name = window.location.hash.split('|')[1].replace(/%20/g, " ");
+    filterItem(filterItems,$('.' + target), name);
+    $('[data-toggle="filter"][href="' + '.' + target + '"]').addClass('active');
   }
 
   $('[data-toggle="filter"]').on('click',function(event) {
     event.preventDefault();
 
-    //filterTl = new TimelineLite();
-
     $(this).closest('.filter-sidebar').find('.nav-link').removeClass('active');
     $(this).addClass('active');
+
+
     
     var target = $(this).attr('href');
-    window.location.hash = target.substr(1);
+    var name = $(this).text();
+    window.location.hash = target.substr(1) + "|" + name;
 
-    filterItem(filterItems,$(target));
+    filterItem(filterItems,$(target),name);
+
+
+    var mobile = window.matchMedia('(max-width: 576px)').matches;
+
+    if (mobile) {
+      $(this).closest('.collapse').prev('.btn-collapse').reusableCollapse();
+    }
   });
 
-  function filterItem(filterItems,target) {
+  function filterItem(filterItems,target,name) {
+
+    $('.current-category').show()
+    $('.current-category').text(name);
 
     $('.filter-reset').transitionCss('fadeShow',{show: true});
 
@@ -127,6 +139,14 @@ $(function() {
 
     filterItems.transitionCss('fadeShow',{show: true, once: true});
     $(this).transitionCss('fadeShow',{show: false});
+
+    $('.current-category').hide();
+
+    var mobile = window.matchMedia('(max-width: 576px)').matches;
+
+    if (mobile) {
+      $(this).closest('.collapse').prev('.btn-collapse').reusableCollapse();
+    }
   });
 
   $('.input-numerical-left').on('click',function() {
@@ -168,6 +188,10 @@ $(function() {
   $('.product-options:not(.disabled)').on('click',function() {
     $(this).parent().find('.product-options').removeClass('active');
     $(this).addClass('active');
+  });
+
+  $('[data-toggle="collapse"]').on('click',function() {
+    $(this).reusableCollapse();
   });
 });
 
@@ -217,5 +241,18 @@ $.fn.extend({
       }
     });
     return this;
+  },
+  reusableCollapse: function() {
+    var collapse = $(this).next('.collapse');
+    var icon = $(this).children('.collapse-icon');
+
+    console.log(collapse);
+    collapse.collapse('toggle');
+    icon.toggleClass('rotate-180');
   }
+});
+
+
+var products = new Vue({
+  el: '#product-overview'
 });

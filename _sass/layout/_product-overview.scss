@@ -2,6 +2,10 @@
 
   &-item {
     text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
     &:hover {
       .product-overview-circle {
         background: #ec919f;

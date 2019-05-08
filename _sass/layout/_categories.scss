@@ -1,11 +1,24 @@
+.categories-section {
+  @include media-breakpoint-down(sm) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 .category-item {
-  max-width: 300px;
-  padding-left: 15px;
-  padding-right: 15px;
-  width: inherit;
+  width: 33.3333333%;
+  padding-left: 0;
+  padding-right: 0;
   flex: none;
   margin-bottom: 1rem;
   cursor: pointer;
+
+  @include media-breakpoint-up(sm) {
+    width: inherit;
+    max-width: 300px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 
   &:hover {
     .category-item-hover-img {
@@ -35,5 +48,8 @@
   &-heading {
     color: $color-secondary;
     transition: all 0.2s ease-in-out;
+    @include media-breakpoint-down(sm) {
+      font-size: 0.8em;
+    }
   }
 }

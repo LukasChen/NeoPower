@@ -39,6 +39,9 @@
 
   .card-title  {
     //color: #212529;
+    @include media-breakpoint-down(sm) {
+      font-size: 1em;
+    }
     transition: all 0.2s ease-in-out;
   }
 }
