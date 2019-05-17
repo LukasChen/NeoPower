@@ -60,7 +60,7 @@
                     {%- continue -%}
                   {% endif %}
                   {% for category_item in category %}
-                  <a class="dropdown-item" href="{{menu.url | relative_url }}#product-{{ category_item | downcase | remove: '& ' | replace: ' ', '-' }}">
+                  <a class="dropdown-item" href="#" data-target="{{menu.url | relative_url }}#product-{{ category_item | downcase | remove: '& ' | replace: ' ', '-' }}">
                     {{category_item}}
                   </a>
                   {% endfor %}

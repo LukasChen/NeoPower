@@ -42,36 +42,36 @@ encoding: utf-8
 #     - node_modules
 
 category_list: 
-  neopowernet:
-    collections:
+  NeoPower Net:
+    Collections:
       - The Upgraders
       - The Infinite
-    zones:
+    Zones:
       - Tummy & waist
       - Back Support
       - Rear & Hips
       - Thighs & Legs
       - Full Body
-    benefits:
+    Benefits:
       - Daily Use
       - Waist Trainer
       - Butt Lifters
       - Posture Corrector
       - Post Surgical
       - Postpartum
-    style:
+    Style:
       - Bodysuit Shaper
       - Body Shapers
       - Body Panties
       - Cinchers
       - Vest
-    closures:
+    Closures:
       - 3 Hooks & Eye
       - Side Hook Eye & Zipper
       - Middle Hook Eye & Zipper
       - Step In
-  shapinglingerie:
-    zones:
+  Shaping Lingerie:
+    Zones:
       - Tummy & Waist
       - Back Support
       - Rear & Hips
@@ -79,13 +79,13 @@ category_list:
       - Arms
       - Bust
       - Full Body
-    styles:
+    Styles:
       - Tops
       - Shorts & Leggings
       - Panties
       - Bodysuits
-  active:
-    zones:
+  Active:
+    Zones:
       - Upper Body
       - Waist
       - Lower Body

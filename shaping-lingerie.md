@@ -13,5 +13,5 @@ jumbotron:
 
     "Light & tight with firm control Sensual and airy. Effortlessly sexy."
     {: .testimonial}
-subitems: shapinglingerie
+subitems: Shaping Lingerie
 ---

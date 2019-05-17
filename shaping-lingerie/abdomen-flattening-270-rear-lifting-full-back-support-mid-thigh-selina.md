@@ -4,8 +4,8 @@ title: 270°Abdomen Flattening Waist Cinching Rear lifting Full Back Support mid
 subtitle: 8996 selina
 price: '38.00'
 feature_image: 
-  - /shaping-lingerie/8996-front.png
-  - /shaping-lingerie/8996-back.png
+  - /shaping-lingerie/8996-front.jpg
+  - /shaping-lingerie/8996-back.jpg
 categories: 
   - Tummy & Waist
   - Back Support

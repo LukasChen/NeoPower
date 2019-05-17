@@ -4,8 +4,8 @@ title: 270°Abdomen Flattening Waist Cinching Full Back Support T-shirt Shaper W
 subtitle: 9035 Adda
 price: '38.00'
 feature_image: 
-  - /shaping-lingerie/9035-front.png
-  - /shaping-lingerie/9035-back.png
+  - /shaping-lingerie/9035-front.jpg
+  - /shaping-lingerie/9035-back.jpg
 categories: 
   - Tummy & Waist
   - Back Support

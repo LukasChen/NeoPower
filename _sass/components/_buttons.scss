@@ -14,7 +14,7 @@
     font-size: 1rem;
     width: 100%;
 
-    @include media-breakpoint-up(sm) {
+    @include media-breakpoint-up(xl) {
       padding: 15px 60px;
       width: auto;
     }
