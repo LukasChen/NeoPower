@@ -4,8 +4,8 @@ title: Bunce Control Super Support Comfy Bra Shaper With Removable Pad
 subtitle: 0005 NEOCAT Bra
 price: '38.00'
 feature_image: 
-  - /shaping-lingerie/0005-front.jpg
-  - /shaping-lingerie/0005-back.jpg
+  - /shaping-lingerie/0005-front.png
+  - /shaping-lingerie/0005-back.png
 categories: 
   - Back Support
   - Bust

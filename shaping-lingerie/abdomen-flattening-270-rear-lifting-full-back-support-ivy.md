@@ -4,8 +4,8 @@ title: 270°Abdomen Flattening Waist Cinching Rear lifting Full Back Support sho
 subtitle: 9033 ivy
 price: '38.00'
 feature_image: 
-  - /shaping-lingerie/9033-front.jpg
-  - /shaping-lingerie/9033-back.jpg
+  - /shaping-lingerie/9033-front.png
+  - /shaping-lingerie/9033-back.png
 categories: 
   - Tummy & Waist
   - Back Support

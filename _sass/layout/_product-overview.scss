@@ -81,13 +81,3 @@
     }
   }
 }
-.product-overview-item {
-  transition: all 0.3s ease-in-out;
-}
-.list-enter, .list-leave-to {
-  opacity: 0;
-  transform: translateY(30px);
-}
-.list-leave-active {
-  position: absolute;
-}
