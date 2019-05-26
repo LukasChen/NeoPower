@@ -60,23 +60,32 @@ layout: default
         
         <h5>Size</h5>
         <div class="d-flex mb-3 flex-wrap">
+          {% if page.sizes %}
           {% for size in page.sizes %}
             <div class="product-options size-options {% if size.disabled %}disabled{% endif %}">{{size.name}}</div>
           {% endfor %}
-          <!-- <div class="product-options size-options">S</div>
+          {% else %}
+          <div class="product-options size-options">S</div>
           <div class="product-options size-options">M</div>
           <div class="product-options size-options">L</div>
           <div class="product-options size-options">XL</div>
           <div class="product-options size-options disabled">2XL</div>
           <div class="product-options size-options disabled">3XL</div>
-          <div class="product-options size-options disabled">4XL</div> -->
+          <div class="product-options size-options disabled">4XL</div>
+          {% endif %}
         </div>
 
         <h5>Colors</h5>
         <div class="d-flex mb-3">
+          {% if page.colors %}
           {% for color in page.colors %}
             <div class="color-option product-options color-{{ color | downcase }}"></div>
           {% endfor %}
+          {% else %}
+          <div class="color-option product-options color-black"></div>
+          <div class="color-option product-options color-mocha"></div>
+          <div class="color-option product-options color-beige"></div>
+          {% endif %}
         </div>
         <div class="d-md-flex justify-content-between align-items-center">
           <div>
