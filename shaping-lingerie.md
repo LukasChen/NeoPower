@@ -2,7 +2,7 @@
 layout: product-overview
 title: Shaping Lingerie
 jumbotron: 
-  img: /shaping-lingerie/shaping-lingerie-head-pic-only.png
+  img: /shaping-lingerie/shaping-lingerie-head-pic-only.jpg
   only_feature_image: true
   color: '#fedacd'
   content: |

@@ -4,8 +4,8 @@ title: Bodysuit Mid-Thighs
 subtitle: 3009 Julia
 price: '38.00'
 feature_image: 
-  - /neopower-net/3009-front.png
-  - /neopower-net/3009-back.png
+  - /neopower-net/3009-front.jpg
+  - /neopower-net/3009-back.jpg
 categories: 
   - The Upgraders
   - Tummy & Waist

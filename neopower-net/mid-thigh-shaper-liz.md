@@ -4,8 +4,8 @@ title: Mid-Thigh Shaper
 subtitle: 3040 Liz
 price: '38.00'
 feature_image: 
-  - /neopower-net/3040-front.png
-  - /neopower-net/3040-back.png
+  - /neopower-net/3040-front.jpg
+  - /neopower-net/3040-back.jpg
 categories: 
   - The Upgraders
   - Tummy & Waist

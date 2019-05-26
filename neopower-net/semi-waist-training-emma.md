@@ -4,8 +4,8 @@ title: Semi-Waist Traning Vest
 subtitle: 3032 Emma
 price: '38.00'
 feature_image:
-  - /neopower-net/3032-front.png
-  - /neopower-net/3032-back.png
+  - /neopower-net/3032-front.jpg
+  - /neopower-net/3032-back.jpg
 categories: 
   - The Upgraders
   - Tummy Waist

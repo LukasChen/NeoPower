@@ -4,8 +4,8 @@ title: Semi-Waist Traning Vest
 subtitle: 2987 Alexandra
 price: '38.00'
 feature_image:
-  - /neopower-net/2987-front.png
-  - /neopower-net/2987-back.png
+  - /neopower-net/2987-front.jpg
+  - /neopower-net/2987-back.jpg
 categories: 
   - The Upgraders
   - Tummy Waist

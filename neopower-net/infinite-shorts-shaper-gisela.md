@@ -4,8 +4,8 @@ title: Infinite Shorts Shaper
 subtitle: 9025 Gisela
 price: '38.00'
 feature_image: 
-  - /neopower-net/9025-front.png
-  - /neopower-net/9025-back.png
+  - /neopower-net/9025-front.jpg
+  - /neopower-net/9025-back.jpg
 categories: 
   - The Infinite
   - Tummy & Waist

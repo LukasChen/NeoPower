@@ -4,8 +4,8 @@ title: Strapless Mid-Thigh Shaper
 subtitle: 3048 Adina
 price: '38.00'
 feature_image:
-  - /neopower-net/3048-front.png
-  - /neopower-net/3048-side.png
+  - /neopower-net/3048-front.jpg
+  - /neopower-net/3048-side.jpg
 categories: 
   - The Upgraders
   - Tummy Waist

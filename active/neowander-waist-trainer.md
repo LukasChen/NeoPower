@@ -3,8 +3,8 @@ layout: product
 title: NeoWander Unisex Waist Trainer
 subtitle: 2871 NeoWander
 feature_image:
-  - /active/2871-neogreen.png
-  - /active/2871-fucsia.png
+  - /active/2871-neogreen.jpg
+  - /active/2871-fucsia.jpg
 price: 38.00
 sizes:
   - name: S

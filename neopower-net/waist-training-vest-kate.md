@@ -4,8 +4,8 @@ title: Waist Traning Vest
 subtitle: 3114 Kate
 price: '38.00'
 feature_image:
-  - /neopower-net/3114-front.png
-  - /neopower-net/3114-back.png
+  - /neopower-net/3114-front.jpg
+  - /neopower-net/3114-back.jpg
 categories: 
   - The Upgraders
   - Tummy Waist

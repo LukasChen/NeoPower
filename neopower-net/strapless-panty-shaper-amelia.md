@@ -4,8 +4,8 @@ title: Strapless Panty Shaper
 subtitle: 3056 Amelia
 price: '38.00'
 feature_image:
-  - /neopower-net/3056-front.png
-  - /neopower-net/3056-back.png
+  - /neopower-net/3056-front.jpg
+  - /neopower-net/3056-back.jpg
 categories: 
   - The Upgraders
   - Tummy Waist

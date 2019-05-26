@@ -109,7 +109,7 @@ main_menu:
     url: /newpower-net/
     dropdown: 
       fullWidth: true
-    img: /neopower-net/3006-front.png
+    img: /neopower-net/3006-front.jpg
     subitems:
       - name: Silvana Waist Traning Corset
         url: /neopower-net/waist-training-corset-silvana/
@@ -155,7 +155,7 @@ main_menu:
         url: /neopower-net/infinite-capri-shaper-roxie/
   - name: Shaping Lingerie
     url: /shaping-lingerie/
-    img: /shaping-lingerie/3098-front.png
+    img: /shaping-lingerie/3098-front.jpg
     dropdown: true
     subitems:
       - name: upCup Bra Lifter
@@ -207,7 +207,7 @@ main_menu:
   - name: Active
     url: /active/
     dropdown: true
-    img: /active/2028-front.png
+    img: /active/2028-front.jpg
     subitems:
       - name: NeoCat Sport Bra
         url: /active/neocat-sport-bra/

@@ -4,8 +4,8 @@ title: Capri Shaper
 subtitle: 3027 Scarlet
 price: '38.00'
 feature_image: 
-  - /neopower-net/3027-front.png
-  - /neopower-net/3027-side.png
+  - /neopower-net/3027-front.jpg
+  - /neopower-net/3027-side.jpg
 categories: 
   - The Upgraders
   - Tummy & Waist

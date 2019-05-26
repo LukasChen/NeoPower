@@ -4,8 +4,8 @@ title: Shorts Shaper
 subtitle: 3041 May
 price: '38.00'
 feature_image: 
-  - /neopower-net/3041-front.png
-  - /neopower-net/3041-back.png
+  - /neopower-net/3041-front.jpg
+  - /neopower-net/3041-back.jpg
 categories: 
   - The Upgraders
   - Tummy & Waist

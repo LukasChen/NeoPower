@@ -4,8 +4,8 @@ title: Shorts Shaper
 subtitle: 3028 Ellena
 price: '38.00'
 feature_image: 
-  - /neopower-net/3028-front.png
-  - /neopower-net/3028-side.png
+  - /neopower-net/3028-front.jpg
+  - /neopower-net/3028-side.jpg
 categories: 
   - Tummy & Waist
   - Back Support

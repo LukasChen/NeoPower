@@ -4,8 +4,8 @@ title: Step-In Waist Traning Corset
 subtitle: 3085 Lana
 price: '38.00'
 feature_image:
-  - /neopower-net/3085-front.png
-  - /neopower-net/3085-back.png
+  - /neopower-net/3085-front.jpg
+  - /neopower-net/3085-back.jpg
 categories: 
   - The Infinite
   - Tummy & Waist

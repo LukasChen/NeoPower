@@ -4,8 +4,8 @@ title: High waist abdomen flattening waist cinching rear lifting capri shorts sh
 subtitle: 9038 Talisha
 price: '38.00'
 feature_image: 
-  - /shaping-lingerie/9038-front.png
-  - /shaping-lingerie/9038-beige-side.png
+  - /shaping-lingerie/9038-front.jpg
+  - /shaping-lingerie/9038-beige-side.jpg
 categories: 
   - Tummy & Waist
   - Rear & Hips
