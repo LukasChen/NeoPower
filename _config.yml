@@ -90,6 +90,20 @@ category_list:
       - Waist
       - Lower Body
 
+
+main_menu2: 
+  NeoPower Net:
+    url: /neopower-net/
+    img: /neopower-net/3006-front.png
+    dropdown:
+      fullWidth: true
+    subitems: true
+  Shaping Lingerie:
+    url: /shaping-lingerie/
+    img: /shaping-lingerie/3098-front.png
+    dropdown: true
+    subitems: true
+
 main_menu:
   - name: NeoPower Net
     url: /newpower-net/
@@ -224,6 +238,14 @@ main_menu:
     url: /innovation/
   - name: Wholesale
     url: /wholesale/
+
+
+defaults:
+  - 
+    scope:
+      path: "active"
+    values:
+      collection: "active"
 
 
 footer:

@@ -1,7 +1,7 @@
 ---
 layout: product
 title: NeoCat Sport Bra With Removable Pads
-subtitle: 0008NeoCat 
+subtitle: 0008 NeoCat 
 price: '38.00'
 feature_image:
   - /active/0008-black.png

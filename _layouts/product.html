@@ -39,13 +39,13 @@ layout: default
       <div class="col-sm-7">
         <h2 class="">{{ page.title }}</h2>
         <h5 class="mb-3 text-muted">{{ page.subtitle }}</h5>
-        <div class="d-flex justify-content-between align-items-center mb-5">
-          <h3>$39.00</h3>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h3>${{ page.price | money }}</h3>
           <h6>Availabiliy: <span style="color: green">In Stock</span></h6>
         </div>
         <nav>
           <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" data-toggle="tab" href="#nav-product-desc" role="tab" aria-controls="nav-home" aria-selected="true"><span class="d-none d-md-block">Product</span> Description</a>
+            <a class="nav-item nav-link active" data-toggle="tab" href="#nav-product-desc" role="tab" aria-controls="nav-home" aria-selected="true"><span class="d-none d-md-inline">Product</span> Description</a>
             <a class="nav-item nav-link" data-toggle="tab" href="#nav-size-chart" role="tab" aria-controls="nav-profile" aria-selected="false">Size Charts</a>
           </div>
         </nav>
@@ -60,34 +60,40 @@ layout: default
         
         <h5>Size</h5>
         <div class="d-flex mb-3 flex-wrap">
-          <div class="product-options size-options">S</div>
+          {% for size in page.sizes %}
+            <div class="product-options size-options {% if size.disabled %}disabled{% endif %}">{{size.name}}</div>
+          {% endfor %}
+          <!-- <div class="product-options size-options">S</div>
           <div class="product-options size-options">M</div>
           <div class="product-options size-options">L</div>
           <div class="product-options size-options">XL</div>
           <div class="product-options size-options disabled">2XL</div>
           <div class="product-options size-options disabled">3XL</div>
-          <div class="product-options size-options disabled">4XL</div>
+          <div class="product-options size-options disabled">4XL</div> -->
         </div>
 
         <h5>Colors</h5>
         <div class="d-flex mb-3">
-          <div class="color-option product-options" style="background-color: #e4c5b7"></div>
-          <div class="color-option product-options" style="background-color: #df4468"></div>
+          {% for color in page.colors %}
+            <div class="color-option product-options color-{{ color | downcase }}"></div>
+          {% endfor %}
         </div>
-        <div class="d-md-flex">
+        <div class="d-md-flex justify-content-between align-items-center">
           <div>
             <h5>Quantity</h5>
             <div class="input-group input-group-numerical mb-4">
               <span class="input-group-btn input-numerical-left">
                 <button type="button" class="btn btn-white">-</button>
               </span>
-             <input class="form-control" type="number" value="1" min="1" max="12">
-             <span class="input-group-btn input-numerical-right">
-               <button type="button" class="btn btn-white">+</button>
-             </span>
+              <input class="form-control" type="number" value="1" min="1" max="12">
+              <span class="input-group-btn input-numerical-right">
+                <button type="button" class="btn btn-white">+</button>
+              </span>
             </div>
           </div>
-          <button class="btn btn-primary btn-lg ml-auto">Add to Cart</button>
+          <div>
+            <button class="btn btn-primary btn-lg ml-auto">Add to Cart</button>
+          </div>
         </div>
       </div>
     </div>
@@ -139,7 +145,7 @@ layout: default
                   <div class="color-option product-options" style="background-color: #e4c5b7"></div>
                   <div class="color-option product-options" style="background-color: #df4468"></div>
                 </div>
-                <div class="d-md-flex">
+                <div class="d-md-flex justify-content-between align-items-center">
                   <div>
                     <h5>Quantity</h5>
                     <div class="input-group input-group-numerical mb-4">
@@ -152,7 +158,9 @@ layout: default
                      </span>
                     </div>
                   </div>
+                  <div>
                   <button class="btn btn-primary btn-lg ml-auto">Add to Cart</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -171,3 +179,34 @@ layout: default
   </div>
 
 </div>
+
+{% if page.suggetion %}
+
+<div class="feature-section mt-5">
+  <div class="container">
+    <h2 class="text-center">You May Also Like</h2>
+    <div class="row">
+      {% assign menu = site.main_menu | where: "name", page.suggetion.collection | first %}
+      {% assign currentNum = 0 %}
+      {% assign truncateNum = 3 %}
+      {%- for subitem in menu.subitems -%}
+        {%- for suggetionCategory in page.suggetion.categories -%}
+
+        {% assign suggetionDowncase = suggetionCategory | downcase %}
+      
+        {% assign suggetionPage = site.pages | where: "url", subitem.url | where: "categories", page.suggetion.name | first %}
+
+        {% if suggetionPage and currentNum < truncateNum %}
+        <div class="col-sm-4">
+          {% include product_card.html data=suggetionPage %}
+          {% assign currentNum = currentNum | plus: 1 %}
+        </div>
+        {% endif %}
+
+        {%- endfor -%}
+          
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+{% endif %}

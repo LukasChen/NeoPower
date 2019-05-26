@@ -5,7 +5,11 @@ $(function() {
   // Init polyfill stuff
   AOS.init();
   Stickyfill.add($('.sticky-top'));
-  console.log(Stickyfill.stickies);
+  var lazyLoadInstance = new LazyLoad({
+    elements_selector: ".lazy"
+    // ... more custom settings?
+  });
+  
   $('.slick-slider').slick({
     autoplay: true,
     autoplaySpeed: 4000,
@@ -86,10 +90,10 @@ $(function() {
   var filterItems = $('.filter-items > *');
 
   if (window.location.hash) {
-    var target = window.location.hash.split('|')[0].substr(1);
-    var name = window.location.hash.split('|')[1].replace(/%20/g, " ");
-    filterItem(filterItems,$('.' + target), name);
-    $('[data-toggle="filter"][href="' + '.' + target + '"]').addClass('active');
+    var target = window.location.hash.substr(1);
+    console.log(target)
+    filterItem(filterItems,target);
+    $('[data-toggle="filter"][href="' + target + '"]').addClass('active');
   }
 
   $('[data-toggle="filter"]').on('click',function(event) {
@@ -102,9 +106,9 @@ $(function() {
     
     var target = $(this).attr('href');
     var name = $(this).text();
-    window.location.hash = target.substr(1) + "|" + name;
+    window.location.hash = target;
 
-    filterItem(filterItems,$(target),name);
+    filterItem(filterItems,target);
 
 
     var mobile = window.matchMedia('(max-width: 576px)').matches;
@@ -114,10 +118,14 @@ $(function() {
     }
   });
 
-  function filterItem(filterItems,target,name) {
+  function filterItem(filterItems,targetName) {
 
-    $('.current-category').show()
-    $('.current-category').text(name);
+    var name = targetName.replace(/product-/,'').replace(/-/g,' ');
+    $('#current-category').show()
+    $('#current-category').text(name);
+
+    var target = $('.' + $.escapeSelector(targetName))
+    console.log($.escapeSelector(targetName));
 
     $('.filter-reset').transitionCss('fadeShow',{show: true});
 
@@ -140,7 +148,7 @@ $(function() {
     filterItems.transitionCss('fadeShow',{show: true, once: true});
     $(this).transitionCss('fadeShow',{show: false});
 
-    $('.current-category').hide();
+    $('#current-category').hide();
 
     var mobile = window.matchMedia('(max-width: 576px)').matches;
 
@@ -250,9 +258,4 @@ $.fn.extend({
     collapse.collapse('toggle');
     icon.toggleClass('rotate-180');
   }
-});
-
-
-var products = new Vue({
-  el: '#product-overview'
 });
