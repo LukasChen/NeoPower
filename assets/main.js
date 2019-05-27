@@ -89,7 +89,13 @@ $(function() {
 
   var filterItems = $('.filter-items > *');
 
-  if (window.location.hash) {
+  $(window).on('hashchange', checkHash);
+
+  if(window.location.hash) {
+    checkHash();
+  }
+
+  function checkHash() {
     var target = window.location.hash.substr(1);
     console.log(target)
     filterItem(filterItems,target);
@@ -105,11 +111,7 @@ $(function() {
 
     
     var target = $(this).attr('href');
-    var name = $(this).text();
     window.location.hash = target;
-
-    filterItem(filterItems,target);
-
 
     var mobile = window.matchMedia('(max-width: 576px)').matches;
 
