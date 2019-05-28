@@ -13,7 +13,8 @@ module.exports = {
   },
 
   externals: {
-    jquery: 'jQuery'
+    jquery: 'jQuery',
+    aos: 'AOS'
   },
 
   resolve: {

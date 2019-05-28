@@ -1,8 +1,21 @@
 import Vue from 'vue';
 import VueLazyLoad from 'vue-lazyload';
 import Slick from 'vue-slick';
+import { CollapsePlugin, ModalPlugin, NavbarPlugin } from 'bootstrap-vue/es/components'
+import AOS from 'aos';
+
+AOS.init();
 
 Vue.use(VueLazyLoad);
+Vue.use(CollapsePlugin);
+Vue.use(ModalPlugin);
+Vue.use(NavbarPlugin);
+
+const header = new Vue({});
+
+if (document.querySelector('#header')) {
+  header.$mount('#header');
+}
 
 import MegaMenu from './components/MegaMenu.vue';
 
@@ -12,8 +25,8 @@ const nav = new Vue({
   }
 });
 
-if(document.querySelector('#navApp')) {
-  nav.$mount('#navApp');
+if(document.querySelector('#main-nav')) {
+  nav.$mount('#main-nav');
 }
 
 
@@ -34,6 +47,7 @@ const product = new Vue({
   delimiters: ['{[',']}'],
   data: {
     currentCategory: '',
+    categoryCollapseVisible: false
   },
   mounted() {
     window.addEventListener('hashchange', this.hashChanged);
@@ -42,6 +56,7 @@ const product = new Vue({
   methods: {
     selectCategory(category) {
       window.location.hash = category;
+      this.categoryCollapseVisible = false;
     },
     hashChanged() {
       this.currentCategory = window.location.hash.substr(1);

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="header">
   <div class="row align-items-center justify-content-between">
     <div class="col-sm-4">
       <!-- <select class="form-control" style="max-width: 250px;" id="exampleFormControlSelect1">
@@ -19,37 +19,40 @@
             {% include icons/baseline-search-24px.svg %}
           </button>
         </div>
-        <button class="btn hover-accent" data-toggle="modal" data-target="#languageModal">English</button>
+        <button class="btn hover-accent" v-b-modal.modal-language>English</button>
         <button class="btn bmd-btn-icon svg-icons">
           {% include icons/baseline-shopping_basket-24px.svg %}
         </button>
       </div>
     </div>
   </div>
+  <b-modal id="modal-language" title="Change Language">
+      <ul class="nav">
+        <li class="nav-item active"><a class="nav-link" href="#">English</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Español</a></li>
+      </ul>
+    </b-modal>
 </div>
 <nav id="main-nav" class="sticky-top navbar navbar-expand-lg navbar-light">
   <div class="container position-relative">
     
-    <button class="navbar-toggler svg-icons" type="button" data-toggle="collapse" data-target="#navApp" aria-controls="navApp" aria-expanded="false" aria-label="Toggle navigation">
+    <b-navbar-toggle target="nav-collapse" class="svg-icons">
       {% include icons/baseline-menu-24px.svg %}
-    </button>
+    </b-navbar-toggle>
     <a id="nav-logo" animation="fadeInLeft" class="navbar-brand mr-0 p-0 navbar-scroll" style="height: 37px;display:none" href="{{ '/' | relative_url }}">
       <img class="img-fluid" src="{{ '/assets/images/neopower-logo-small.png' | relative_url }}">
     </a>
     <button class="btn shopping-basket bmd-btn-icon navbar-scroll" animation="fadeInRight" style="display:none;">
       {% include icons/baseline-shopping_basket-24px.svg %}
     </button>
-    <div class="collapse navbar-collapse" id="navApp">
+    <b-collapse id="nav-collapse" is-nav>
       <ul class="navbar-nav d-flex justify-content-between align-items-center" style="width: 100%" v-cloak>
-        {% for menu in site.main_menu %}
-          {% if menu.dropdown %}
+        {%- for menu in site.main_menu -%}
+          {%- if menu.dropdown -%}
           {% assign category_selector = menu.name | downcase | replace: ' ', '' %}
           {% assign columnLength = site.category_list[category_selector].size %}
           
-          <mega-menu {% if menu.url == page.url %}active{% endif %} 
-          {% unless menu.dropdown.fullWidth %}:width="{{ columnLength | times: 18 | plus: 5 }}"{% endunless %} 
-          {% if menu.dropdown.fullWidth %}full-width{% endif %}
-          href="{{ menu.url | relative_url }}">
+          <mega-menu {% if menu.url == page.url %}active{% endif %} {% unless menu.dropdown.fullWidth %}:width="{{ columnLength | times: 18 | plus: 5 }}"{% endunless %} {% if menu.dropdown.fullWidth %}full-width{% endif %} href="{{ menu.url | relative_url }}">
             <template v-slot:name>
               {{menu.name}}
             </template>
@@ -91,21 +94,21 @@
             </div>
           </mega-menu>
 
-          {% else %}
+          {%- else -%}
           <li class="nav-item">
             <a class="nav-link {% if menu.url == page.url %}active{% endif %}" href="{{site.baseurl}}{{menu.url}}">
               {{menu.name}}
             </a>
           </li>
-          {% endif %}
-        {% endfor %}
+          {%- endif -%}
+        {%- endfor -%}
       </ul>
-    </div>
+    </b-collapse>
   </div> 
 </nav>
 
 <!-- Language Modal -->
-<div class="modal fade" id="languageModal" tabindex="-1" role="dialog" aria-labelledby="languageModal" aria-hidden="true">
+<!-- <div class="modal fade" id="languageModal" tabindex="-1" role="dialog" aria-labelledby="languageModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -125,4 +128,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "bootstrap-material-design": "^4.1.1",
+    "bootstrap-vue": "^2.0.0-rc.21",
     "jquery": "^3.4.1",
     "vue": "^2.6.10",
     "vue-lazyload": "^1.2.6",

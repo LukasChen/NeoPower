@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 ---
 
 <div class="container">
@@ -43,7 +43,7 @@ layout: default
         <!-- Use [0] to verify data type to be either string or array -->
         {% if sitepage.feature_image[1] %}
 
-        <div class="slick-slider-thumbnail">
+        <slick :options="{autoplay: true,autoplaySpeed: 4000,dots: true}" v-cloak>
               
           {% for feature_image_1 in sitepage.feature_image %}
             {% if feature_image_1 contains "://" %}
@@ -57,7 +57,7 @@ layout: default
             </div>
           {% endfor %}
 
-        </div>
+          </slick>
 
         {% else %}
           {% if sitepage.feature_image contains "://" %}

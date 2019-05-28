@@ -11,10 +11,10 @@ layout: default
   <div class="row">
     <div class="col-md-3 mb-4">
       <div class="sticky-top filter-sidebar" id="filter-sidebar" style="top: 70px;">
-      <button class="d-md-none btn btn-block btn-collapse" data-toggle="collapse">
-        Categories <div class="collapse-icon rotate-180">{% include icons/baseline-keyboard_arrow_down-24px.svg %}</div>
-        </button>
-      <div class="collapse show">
+      <button class="d-md-none btn btn-block btn-collapse" v-b-toggle.collapse-filter>
+        Categories <div class="collapse-icon">{% include icons/baseline-keyboard_arrow_down-24px.svg %}</div>
+      </button>
+      <b-collapse id="collapse-filter" v-model="categoryCollapseVisible">
       {% for categories in site.category_list[page.subitems] %}
       <h6 class="filter-heading">By {{categories[0]}}</h6>
       <ul class="nav flex-column">
@@ -31,11 +31,11 @@ layout: default
       </ul>
       {% endfor %}
       <ul class="nav flex-column">
-        <li class="nav-item filter-reset" v-if="currentCategory">
+        <li class="nav-item" v-if="currentCategory">
           <a class="nav-link" @click.prevent="selectCategory('')" href="#"><strong>Show All</strong></a>
         </li>
       </ul>
-      </div>
+      </b-collapse>
       </div>
     </div>
     <div class="col-md-9" v-cloak>

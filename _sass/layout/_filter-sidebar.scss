@@ -20,7 +20,7 @@
   padding-bottom: 0.2rem;
 }
 
-#filter-sidebar-content {
+#collapse-filter {
   @include media-breakpoint-up(md) {
     display: block !important
   }

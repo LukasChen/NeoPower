@@ -1,7 +1,12 @@
+.collapsed > .collapse-icon {
+  transform: rotate(0deg);
+}
+
 .collapse-icon {
   display: inline-block;
   margin-left: auto;
   transition: transform 150ms ease-in-out;
+  transform: rotate(180deg);
 }
 .btn-collapse {
   display: flex;
