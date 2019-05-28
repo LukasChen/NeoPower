@@ -9,13 +9,23 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
-    "node-sass-tilde-importer": "^1.0.2"
+    "node-sass-tilde-importer": "^1.0.2",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.32.2"
   },
   "dependencies": {
-    "bootstrap-material-design": "^4.1.1"
+    "bootstrap-material-design": "^4.1.1",
+    "jquery": "^3.4.1",
+    "vue": "^2.6.10",
+    "vue-lazyload": "^1.2.6",
+    "vue-slick": "^1.1.15"
   }
 }

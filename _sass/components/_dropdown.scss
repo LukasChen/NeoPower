@@ -1,5 +1,6 @@
 .mega-dropdown {
   //display: none;
+  display: block;
   border-radius: 0;
   margin-top: 0;
   border: 0;
@@ -8,16 +9,16 @@
   min-width: 10rem;
   padding: 1.5rem 2rem;
   //min-width: 100%;
-  animation: openMenuReverse 0.2s 1 ease-in-out;
+  // animation: openMenuReverse 0.2s 1 ease-in-out;
   
   //display: block;me
   //visibility: hidden;
   //top: -10px;
   //opacity: 0;
 
-  &.open {
-    animation: openMenu 0.2s 1 ease-in-out;
-  }
+  // &.open {
+  //   animation: openMenu 0.2s 1 ease-in-out;
+  // }
 
   @include media-breakpoint-up(md) {
     &.dropdown-menu.show {
@@ -25,6 +26,13 @@
     }
   }
 }
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
 @keyframes openMenu{
   0% {
     opacity: 0;

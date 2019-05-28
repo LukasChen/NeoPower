@@ -1,9 +1,9 @@
 {% assign data = include.data %}
 
 <a href="{{site.baseurl}}{{data.url}}" class="card product-card">
-    <img class="img-fluid card-img-top lazy {% if data.feature_image[1] %}product-card-img{% endif %}" data-src="{{site.baseurl}}/assets/images{{data.feature_image[0]}}">
+    <img class="img-fluid card-img-top {% if data.feature_image[1] %}product-card-img{% endif %}" v-lazy="'{{site.baseurl}}/assets/images{{data.feature_image[0]}}'">
     {%- if data.feature_image[1] -%}
-      <img class="img-fluid card-img-top product-card-img-hover lazy" data-src="{{site.baseurl}}/assets/images{{data.feature_image[1]}}">
+      <img class="img-fluid card-img-top product-card-img-hover" v-lazy="'{{site.baseurl}}/assets/images{{data.feature_image[1]}}'">
     {%- endif -%}
     <div class="card-body d-flex flex-column product-overview-item-body">
       <h5 class="card-title {%- unless data.subtitle -%}mb-3{%- endunless -%}">

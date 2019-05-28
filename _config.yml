@@ -10,7 +10,7 @@ title: NewPower
 email: 
 description: > # this means to ignore newlines until "baseurl:"
   NewPower
-baseurl: "/NeoPower" # the subpath of your site, e.g. /blog
+baseurl: "/neopower" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site
 twitter_username: ""
 github_username:  ""
@@ -26,6 +26,7 @@ exclude:
   - "css/main.scss"
   - "_sass"
   - "webpack.config.js"
+  - "src"
 permalink: pretty
 
 # Build settings

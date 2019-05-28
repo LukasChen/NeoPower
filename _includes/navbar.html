@@ -30,7 +30,7 @@
 <nav id="main-nav" class="sticky-top navbar navbar-expand-lg navbar-light">
   <div class="container position-relative">
     
-    <button class="navbar-toggler svg-icons" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler svg-icons" type="button" data-toggle="collapse" data-target="#navApp" aria-controls="navApp" aria-expanded="false" aria-label="Toggle navigation">
       {% include icons/baseline-menu-24px.svg %}
     </button>
     <a id="nav-logo" animation="fadeInLeft" class="navbar-brand mr-0 p-0 navbar-scroll" style="height: 37px;display:none" href="{{ '/' | relative_url }}">
@@ -39,28 +39,31 @@
     <button class="btn shopping-basket bmd-btn-icon navbar-scroll" animation="fadeInRight" style="display:none;">
       {% include icons/baseline-shopping_basket-24px.svg %}
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav d-flex justify-content-between align-items-center" style="width: 100%">
+    <div class="collapse navbar-collapse" id="navApp">
+      <ul class="navbar-nav d-flex justify-content-between align-items-center" style="width: 100%" v-cloak>
         {% for menu in site.main_menu %}
-          <li class="nav-item {% if menu.dropdown %}dropdown{% endif %} {% if menu.dropdown.fullWidth %}position-static{% endif %}">
-            <a class="nav-link {% if menu.dropdown %}dropdown-toggle{% endif %} {% if menu.url == page.url %}active{% endif %}" href="{{site.baseurl}}{{menu.url}}">
+          {% if menu.dropdown %}
+          {% assign category_selector = menu.name | downcase | replace: ' ', '' %}
+          {% assign columnLength = site.category_list[category_selector].size %}
+          
+          <mega-menu {% if menu.url == page.url %}active{% endif %} 
+          {% unless menu.dropdown.fullWidth %}:width="{{ columnLength | times: 18 | plus: 5 }}"{% endunless %} 
+          {% if menu.dropdown.fullWidth %}full-width{% endif %}
+          href="{{ menu.url | relative_url }}">
+            <template v-slot:name>
               {{menu.name}}
-            </a>
-            {% if menu.dropdown %}
-            {% assign category_selector = menu.name | downcase | replace: ' ', '' %}
-            {% assign columnLength = site.category_list[category_selector].size %}
-            <div class="dropdown-menu mega-dropdown shadow" aria-labelledby="navbarDropdown" {% unless menu.dropdown.fullWidth %}style="width: {{ columnLength | times: 18 | plus: 5}}rem"{% endunless %}>
-              <div class="row">
+            </template>
+            <div class="row">
               {% for categories in site.category_list[category_selector] %}
               <div class="col-sm dropdown-column">
                 <h5 class="dropdown-heading">{{categories[0]}}</h5>
                 <ul class="nav flex-column">
                   {% for category in categories %}
                   {% if forloop.index == 1 %}
-                    {%- continue -%}
+                  {%- continue -%}
                   {% endif %}
                   {% for category_item in category %}
-                  <a class="dropdown-item" href="{{menu.url | relative_url }}#product-{{ category_item | downcase | remove: '& ' | replace: ' ', '-' }}">
+                  <a class="dropdown-item" href="{{menu.url | relative_url }}#{{ category_item | downcase | replace: ' ', '-' }}">
                     {{category_item}}
                   </a>
                   {% endfor %}
@@ -70,10 +73,10 @@
               {% endfor %}
               <div class="col-sm ml-auto">
                 {% if menu.img contains "://" %}
-                  {% assign menuImage = menu.img %}
+                {% assign menuImage = menu.img %}
                 {% else %}
-                  {% capture menuImage %}assets/images{{menu.img}}{% endcapture %}
-                  {% assign menuImage = menuImage | relative_url %}
+                {% capture menuImage %}assets/images{{menu.img}}{% endcapture %}
+                {% assign menuImage = menuImage | relative_url %}
                 {% endif %}
                 <img class="img-fluid" src="{{ menuImage }}">
               </div>
@@ -85,10 +88,16 @@
                   <a class="dropdown-item" href="#">Link #3</a>
                 </ul>
               </div> -->
-              </div>
             </div>
-            {% endif %}
+          </mega-menu>
+
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link {% if menu.url == page.url %}active{% endif %}" href="{{site.baseurl}}{{menu.url}}">
+              {{menu.name}}
+            </a>
           </li>
+          {% endif %}
         {% endfor %}
       </ul>
     </div>

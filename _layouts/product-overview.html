@@ -7,7 +7,7 @@ layout: default
   {{content}}
 </div>
 
-<div class="container">
+<div class="container" id="product-overview">
   <div class="row">
     <div class="col-md-3 mb-4">
       <div class="sticky-top filter-sidebar" id="filter-sidebar" style="top: 70px;">
@@ -24,51 +24,39 @@ layout: default
         {% endif %}
         {% for category_item in category %}
         <li class="nav-item filter-item">
-          <a class="nav-link filter-link" data-toggle="filter" href="product-{{ category_item | downcase | replace: ' ', '-' }}">{{ category_item }}</a>
+          <a class="nav-link filter-link" :class="{ active: currentCategory == '{{category_item | downcase | replace: ' ', '-'}}' }" @click.prevent="selectCategory('{{category_item | downcase | replace: ' ', '-'}}')" href="#">{{ category_item }}</a>
         </li>
         {% endfor %}
         {% endfor %}
       </ul>
       {% endfor %}
       <ul class="nav flex-column">
-        <li class="nav-item filter-reset fadeReady hidden-init">
-          <a class="nav-link" href="#"><strong>Show All</strong></a>
+        <li class="nav-item filter-reset" v-if="currentCategory">
+          <a class="nav-link" @click.prevent="selectCategory('')" href="#"><strong>Show All</strong></a>
         </li>
       </ul>
       </div>
       </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-9" v-cloak>
 
-      <h1 id="current-category" class="text-capitalize hidden-init"></h1>
-      <h4 id="current-length" class="hidden-init"></h4>
+      <h1 v-if="currentCategory" id="current-category" class="text-capitalize">{[ currentCategoryText ]}</h1>
   
-      <div class="row filter-items" id="product-overview">
-  
-      {%- for menu in site.main_menu -%}
+      <div class="row filter-items">
 
-      {%- if menu.url == page.url -%}
+      {% assign menu = site.main_menu | where: "url", page.url | first %}
 
       {%- for subitem in menu.subitems -%}
       
   
-      {%- for sitepage in site.pages -%}
-  
-  
-      {%- if subitem.url == sitepage.url -%}
-  
-      <div class="col-sm-4 col-6 mb-5 text-center fadeReady fadeShow product-overview-item {% if sitepage.categories %}{% for category in sitepage.categories %}product-{{category | downcase | replace: ' ', '-' }} {% endfor %}{% endif %}">
+      {% assign sitepage = site.pages | where: "url", subitem.url | first %}
+
+      {%- if sitepage -%}
+      <product-item :data='{{ sitepage.categories | jsonify | downcase | replace: ' ', '-' }}' :current="currentCategory" class="col-sm-4 col-6 mb-5 text-center fadeReady fadeShow product-overview-item">
         {% include product_card.html data=sitepage %}
-      </div>
-  
+      </product-item>
       {%- endif -%}
-  
-      {%- endfor -%}
 
-      {%- endfor -%}
-
-      {%- endif -%}
-  
       {%- endfor -%}
 
       </div>
