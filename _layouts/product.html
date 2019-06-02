@@ -4,11 +4,13 @@ layout: page
 
 <div class="feature-section product-page">
   <div class="container">
-    <div class="row">
-      <div class="col-sm-5 mb-4">
+      <Product></Product>
+    <!-- <div class="row"> -->
+      
+      <!-- <div class="col-sm-5 mb-4"> -->
 
         <!-- Use [0] to verify data type to be either string or array -->
-        {% if page.feature_image[0] %}
+        <!-- {% if page.feature_image[0] %}
 
         <slick :options="{autoplay: true,autoplaySpeed: 4000,dots: true}" v-cloak>
               
@@ -36,8 +38,9 @@ layout: page
           <img class="img-fluid" src="{{ feature_image }}">
         {% endif %}
       </div>
-      <div class="col-sm-7">
-        <h2 class="">{{ page.title }}</h2>
+      <div class="col-sm-7"> -->
+        
+        <!-- <h2 class="">{{ page.title }} </h2>
         <h5 class="mb-3 text-muted">{{ page.subtitle }}</h5>
         <div class="d-flex justify-content-between align-items-center mb-3">
           <h3>${{ page.price | money }}</h3>
@@ -103,8 +106,8 @@ layout: page
           <div>
             <button class="btn btn-primary btn-lg ml-auto">Add to Cart</button>
           </div>
-        </div>
-      </div>
+        </div> -->
+      <!-- </div> -->
     </div>
   </div>
 </div>

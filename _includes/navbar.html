@@ -26,27 +26,31 @@
       </div>
     </div>
   </div>
-  <b-modal id="modal-language" title="Change Language">
+  <b-modal id="modal-language" title="Change Language" v-cloak>
       <ul class="nav">
         <li class="nav-item active"><a class="nav-link" href="#">English</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Español</a></li>
       </ul>
     </b-modal>
 </div>
-<nav id="main-nav" class="sticky-top navbar navbar-expand-lg navbar-light">
+<nav id="main-nav" class="sticky-top navbar navbar-expand-lg navbar-light" v-scroll:187="testCall">
   <div class="container position-relative">
     
     <b-navbar-toggle target="nav-collapse" class="svg-icons">
       {% include icons/baseline-menu-24px.svg %}
     </b-navbar-toggle>
-    <a id="nav-logo" animation="fadeInLeft" class="navbar-brand mr-0 p-0 navbar-scroll" style="height: 37px;display:none" href="{{ '/' | relative_url }}">
+    <transition name="fade">
+    <a id="nav-logo" animation="fadeInLeft" class="navbar-brand mr-0 p-0 navbar-scroll" style="height: 37px" href="{{ '/' | relative_url }}" v-if="showIcons" v-cloak>
       <img class="img-fluid" src="{{ '/assets/images/neopower-logo-small.png' | relative_url }}">
     </a>
-    <button class="btn shopping-basket bmd-btn-icon navbar-scroll" animation="fadeInRight" style="display:none;">
+    </transition>
+    <transition name="fade">
+    <button class="btn shopping-basket bmd-btn-icon navbar-scroll" animation="fadeInRight" v-if="showIcons" v-cloak>
       {% include icons/baseline-shopping_basket-24px.svg %}
     </button>
+    </transition>
     <b-collapse id="nav-collapse" is-nav>
-      <ul class="navbar-nav d-flex justify-content-between align-items-center" style="width: 100%" v-cloak>
+      <ul class="navbar-nav d-flex justify-content-between align-items-center" style="width: 100%">
         {%- for menu in site.main_menu -%}
           {%- if menu.dropdown -%}
           {% assign category_selector = menu.name | downcase | replace: ' ', '' %}
@@ -56,7 +60,7 @@
             <template v-slot:name>
               {{menu.name}}
             </template>
-            <div class="row">
+            <div class="row" v-cloak>
               {% for categories in site.category_list[category_selector] %}
               <div class="col-sm dropdown-column">
                 <h5 class="dropdown-heading">{{categories[0]}}</h5>

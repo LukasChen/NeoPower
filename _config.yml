@@ -6,11 +6,11 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: NewPower
+title: NeoPower
 email: 
 description: > # this means to ignore newlines until "baseurl:"
-  NewPower
-baseurl: "/neopower" # the subpath of your site, e.g. /blog
+  NeoPower
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site
 twitter_username: ""
 github_username:  ""
@@ -214,12 +214,12 @@ main_menu:
         url: /active/neocat-sport-bra/
       - name: NeoPower Suda Mas Cami
         url: /active/neopower-suda-mas-cami/
-      - name: NewPower + PowerNet Corset
-        url: /active/newpowernet-thermal-corset/
+      - name: NeoPower + PowerNet Corset
+        url: /active/neopowernet-thermal-corset/
       - name: NeoWander Waist Trainer
         url: /active/neowander-waist-trainer/
       - name: NeoPower Tubular Shaper
-        url: /active/newpower-tubular-shaper/
+        url: /active/neopower-tubular-shaper/
       - name: Capri Leggings
         url: /active/capri-leggings-belt/
       - name: Full Leggings
