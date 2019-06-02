@@ -1,77 +1,22 @@
 import Vue from 'vue';
-import VueLazyLoad from 'vue-lazyload';
-import Slick from 'vue-slick';
-import { CollapsePlugin, ModalPlugin, NavbarPlugin } from 'bootstrap-vue/es/components'
 import AOS from 'aos';
 
 AOS.init();
 
-Vue.use(VueLazyLoad);
-Vue.use(CollapsePlugin);
-Vue.use(ModalPlugin);
-Vue.use(NavbarPlugin);
 
-const header = new Vue({});
+import headerApp from './header.js';
+import navApp from './nav.js';
+import pageApp from './page.js';
+import productOverview from './productOverview.js';
 
-if (document.querySelector('#header')) {
-  header.$mount('#header');
-}
+mountApp(headerApp, '#header');
+mountApp(navApp, '#main-nav');
+mountApp(pageApp, '#pageApp');
+mountApp(productOverview, '#productOverview');
 
-import MegaMenu from './components/MegaMenu.vue';
 
-const nav = new Vue({
-  components: {
-    MegaMenu
+function mountApp(app,id) {
+  if(document.querySelector(id)) {
+    app.$mount(id);
   }
-});
-
-if(document.querySelector('#main-nav')) {
-  nav.$mount('#main-nav');
-}
-
-
-const page = new Vue({
-  delimiters: ['{[',']}'],
-  components: {
-    Slick
-  }
-});
-
-if (document.querySelector('#page-app')) {
-  page.$mount('#page-app');
-}
-
-import ProductItem from './components/ProductItem.vue';
-
-const product = new Vue({
-  delimiters: ['{[',']}'],
-  data: {
-    currentCategory: '',
-    categoryCollapseVisible: false
-  },
-  mounted() {
-    window.addEventListener('hashchange', this.hashChanged);
-    if(window.location.hash) this.hashChanged();
-  },
-  methods: {
-    selectCategory(category) {
-      window.location.hash = category;
-      this.categoryCollapseVisible = false;
-    },
-    hashChanged() {
-      this.currentCategory = window.location.hash.substr(1);
-    }
-  },
-  computed: {
-    currentCategoryText() {
-      return this.currentCategory.replace(/-/g, ' ');
-    }
-  },
-  components: {
-    ProductItem
-  }
-});
-
-if (document.querySelector('#product-overview')) {
-  product.$mount('#product-overview')
 }
