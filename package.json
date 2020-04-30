@@ -24,7 +24,7 @@
   "dependencies": {
     "bootstrap-material-design": "^4.1.1",
     "bootstrap-vue": "^2.0.0-rc.21",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "shopify-buy": "^2.2.4",
     "vue": "^2.6.10",
     "vue-lazyload": "^1.2.6",
